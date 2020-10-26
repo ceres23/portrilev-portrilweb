@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+	
+
+
+
+<!-- 
+	<bean id="oauthHelper" class="it.csi.wso2.apiman.oauth2.helper.OauthHelper" >
+		<constructor-arg value="${url.token}" />
+		<constructor-arg value="${consumerKey}" />
+		<constructor-arg value="${consumerSecret}" />
+	</bean>
+
+	<bean id="wsProvider" class="it.csi.wso2.apiman.oauth2.helper.extra.cxf.CxfImpl" />
+-->
+
+
+
+
+	<!-- questa sezione serve per eventuali metodi da chiamare in maniera asincrona -->
+	<task:annotation-driven executor="myExecutor" scheduler="myScheduler"/>
+    <task:executor id="myExecutor" pool-size="3-10" queue-capacity="50"/>
+    <task:scheduler id="myScheduler" pool-size="10"/>
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ConcurrentTaskExecutor" />
+ 	
+</beans>

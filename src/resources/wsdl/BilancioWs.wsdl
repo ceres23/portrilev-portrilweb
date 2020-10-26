@@ -1,0 +1,2201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BilancioWsService" targetNamespace="http://cxf.bilancio.interfacecxf.cmpsrvrp.bilsrvrp.csi.it/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://cxf.bilancio.interfacecxf.cmpsrvrp.bilsrvrp.csi.it/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cxf.bilancio.interfacecxf.cmpsrvrp.bilsrvrp.csi.it/" xmlns:tns="http://cxf.bilancio.interfacecxf.cmpsrvrp.bilsrvrp.csi.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType abstract="true" name="baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="result" type="tns:result"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="result">
+<xs:sequence>
+<xs:element minOccurs="0" name="codice" type="xs:int"/>
+<xs:element minOccurs="0" name="descrizione" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="determinaByCodiceDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="inserisciAttoLiquidazioneDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="attoLiquidazione" type="tns:attoLiquidazione"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegni" nillable="true" type="tns:impegno"/>
+<xs:element minOccurs="0" name="maxRec" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="attoLiquidazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="atto" type="tns:atto"/>
+<xs:element minOccurs="0" name="beneficiario" type="tns:beneficiario"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="dettagliAtto" nillable="true" type="tns:dettaglioConsultazioneAtto"/>
+<xs:element minOccurs="0" name="fornitore" type="tns:fornitore"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="atto">
+<xs:sequence>
+<xs:element minOccurs="0" name="allAltro" type="xs:string"/>
+<xs:element minOccurs="0" name="annoAtto" type="xs:string"/>
+<xs:element minOccurs="0" name="annoEsercizioAtto" type="xs:string"/>
+<xs:element minOccurs="0" name="annoTitolario" type="xs:string"/>
+<xs:element minOccurs="0" name="chiaveUtente" type="xs:string"/>
+<xs:element minOccurs="0" name="codTitolario" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAggAtto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataAnnullAtto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataComplAtto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataEmisAtto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataRicAtto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataRichMod" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataRifiuto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataScadenza" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datavaluta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descAttivita" type="xs:string"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="dirAtto" type="xs:string"/>
+<xs:element minOccurs="0" name="distinta" type="xs:string"/>
+<xs:element minOccurs="0" name="divisaUsata" type="xs:string"/>
+<xs:element minOccurs="0" name="fatture" type="xs:string"/>
+<xs:element minOccurs="0" name="flAltro" type="xs:string"/>
+<xs:element minOccurs="0" name="flDatiSens" type="xs:string"/>
+<xs:element minOccurs="0" name="flDichiaraz" type="xs:string"/>
+<xs:element minOccurs="0" name="flDocGiustif" type="xs:string"/>
+<xs:element minOccurs="0" name="flEstrCopiaProv" type="xs:string"/>
+<xs:element minOccurs="0" name="flFatture" type="xs:string"/>
+<xs:element minOccurs="0" name="importoAtto" type="xs:double"/>
+<xs:element minOccurs="0" name="ncarta" type="xs:int"/>
+<xs:element minOccurs="0" name="nomeDir" type="xs:string"/>
+<xs:element minOccurs="0" name="nomeLiq" type="xs:string"/>
+<xs:element minOccurs="0" name="notaRifiuto" type="xs:string"/>
+<xs:element minOccurs="0" name="note" type="xs:string"/>
+<xs:element minOccurs="0" name="nroAtto" type="xs:string"/>
+<xs:element minOccurs="0" name="nroElencoAtto" type="xs:int"/>
+<xs:element minOccurs="0" name="nroTelLiq" type="xs:string"/>
+<xs:element minOccurs="0" name="numPratica" type="xs:string"/>
+<xs:element minOccurs="0" name="ritenuta" type="tns:ritenutaAtto"/>
+<xs:element minOccurs="0" name="settoreAtto" type="xs:string"/>
+<xs:element minOccurs="0" name="stato" type="xs:int"/>
+<xs:element minOccurs="0" name="testoRichMod" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoPagamAutom" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ritenutaAtto">
+<xs:sequence>
+<xs:element minOccurs="0" name="aliqIrpef" type="xs:double"/>
+<xs:element minOccurs="0" name="codAltraCassa" type="xs:string"/>
+<xs:element minOccurs="0" name="codAttivita" type="xs:string"/>
+<xs:element minOccurs="0" name="datoInps" type="xs:int"/>
+<xs:element minOccurs="0" name="inpsAl" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="inpsAltraCassa" type="xs:string"/>
+<xs:element minOccurs="0" name="inpsDal" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="irpNonSoggette" type="xs:double"/>
+<xs:element minOccurs="0" name="rischioInail" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoRitenuta" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoSoggetto" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="beneficiario">
+<xs:complexContent>
+<xs:extension base="tns:beneficiarioKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="abi" type="xs:string"/>
+<xs:element minOccurs="0" name="bic" type="xs:string"/>
+<xs:element minOccurs="0" name="bloccoPag" type="xs:string"/>
+<xs:element minOccurs="0" name="cab" type="xs:string"/>
+<xs:element minOccurs="0" name="capSede" type="xs:string"/>
+<xs:element minOccurs="0" name="cin" type="xs:string"/>
+<xs:element minOccurs="0" name="codaccre" type="xs:string"/>
+<xs:element minOccurs="0" name="codbenCedente" type="xs:int"/>
+<xs:element minOccurs="0" name="codbenCeduto" type="xs:int"/>
+<xs:element minOccurs="0" name="codfiscQuiet" type="xs:string"/>
+<xs:element minOccurs="0" name="codpag" type="xs:string"/>
+<xs:element minOccurs="0" name="codupos" type="xs:string"/>
+<xs:element minOccurs="0" name="comuneSede" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAgg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descrAbi" type="xs:string"/>
+<xs:element minOccurs="0" name="descrCab" type="xs:string"/>
+<xs:element minOccurs="0" name="descrCodAccre" type="xs:string"/>
+<xs:element minOccurs="0" name="flagTutteErog" type="xs:string"/>
+<xs:element minOccurs="0" name="iban" type="xs:string"/>
+<xs:element minOccurs="0" name="intestcc" type="xs:string"/>
+<xs:element minOccurs="0" name="mailModPag" type="xs:string"/>
+<xs:element minOccurs="0" name="nroCC" type="xs:string"/>
+<xs:element minOccurs="0" name="piazza" type="xs:string"/>
+<xs:element minOccurs="0" name="progbenCeduto" type="xs:int"/>
+<xs:element minOccurs="0" name="provSede" type="xs:string"/>
+<xs:element minOccurs="0" name="quiet" type="xs:string"/>
+<xs:element minOccurs="0" name="ragSocSede" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="viaSede" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="beneficiarioKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="codBen" type="xs:int"/>
+<xs:element minOccurs="0" name="progBen" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="dettaglioConsultazioneAtto">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoBilRif" type="xs:string"/>
+<xs:element minOccurs="0" name="annoEser" type="xs:int"/>
+<xs:element minOccurs="0" name="annoImp" type="xs:string"/>
+<xs:element minOccurs="0" name="annoProvv" type="xs:string"/>
+<xs:element minOccurs="0" name="cigLiq" type="xs:string"/>
+<xs:element minOccurs="0" name="cigMand" type="xs:string"/>
+<xs:element minOccurs="0" name="cupLiq" type="xs:string"/>
+<xs:element minOccurs="0" name="cupMand" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAgg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataQuiet" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="flagPign" type="xs:string"/>
+<xs:element minOccurs="0" name="importo" type="xs:double"/>
+<xs:element minOccurs="0" name="importoMandLordo" type="xs:double"/>
+<xs:element minOccurs="0" name="importoMandNetto" type="xs:double"/>
+<xs:element minOccurs="0" name="importoQuiet" type="xs:double"/>
+<xs:element minOccurs="0" name="importoRitenute" type="xs:double"/>
+<xs:element minOccurs="0" name="NLiq" type="xs:int"/>
+<xs:element minOccurs="0" name="NLiqPrec" type="xs:int"/>
+<xs:element minOccurs="0" name="nroArticolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroImp" type="xs:int"/>
+<xs:element minOccurs="0" name="nroMand" type="xs:int"/>
+<xs:element minOccurs="0" name="nroProv" type="xs:string"/>
+<xs:element minOccurs="0" name="subImpegno" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoFondo" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoProv" type="xs:string"/>
+<xs:element minOccurs="0" name="trasfTipo" type="xs:string"/>
+<xs:element minOccurs="0" name="trasfVoce" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="fornitore">
+<xs:sequence>
+<xs:element minOccurs="0" name="aliquo" type="xs:double"/>
+<xs:element minOccurs="0" name="bloccoPag" type="xs:string"/>
+<xs:element minOccurs="0" name="cap" type="xs:string"/>
+<xs:element minOccurs="0" name="causaleBlocco" type="xs:string"/>
+<xs:element minOccurs="0" name="cfe" type="xs:string"/>
+<xs:element minOccurs="0" name="classben" type="xs:string"/>
+<xs:element minOccurs="0" name="codComune" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codfisc" type="xs:string"/>
+<xs:element minOccurs="0" name="codnatgiu" type="xs:string"/>
+<xs:element minOccurs="0" name="comune" type="xs:string"/>
+<xs:element minOccurs="0" name="comuneNascita" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAgg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataNascita" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datlavCap" type="xs:string"/>
+<xs:element minOccurs="0" name="datlavComune" type="xs:string"/>
+<xs:element minOccurs="0" name="datlavProv" type="xs:string"/>
+<xs:element minOccurs="0" name="datlavRagsoc" type="xs:string"/>
+<xs:element minOccurs="0" name="datlavVia" type="xs:string"/>
+<xs:element minOccurs="0" name="divisaUsata" type="xs:string"/>
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+<xs:element minOccurs="0" name="fax" type="xs:string"/>
+<xs:element minOccurs="0" name="flAvviso" type="xs:string"/>
+<xs:element minOccurs="0" name="flFd" type="xs:string"/>
+<xs:element minOccurs="0" name="generico" type="xs:string"/>
+<xs:element minOccurs="0" name="note" type="xs:string"/>
+<xs:element minOccurs="0" name="oldCodben" type="xs:string"/>
+<xs:element minOccurs="0" name="oldUtente" type="xs:string"/>
+<xs:element minOccurs="0" name="partiva" type="xs:string"/>
+<xs:element minOccurs="0" name="personaFisica" type="xs:string"/>
+<xs:element minOccurs="0" name="pref" type="xs:string"/>
+<xs:element minOccurs="0" name="prov" type="xs:string"/>
+<xs:element minOccurs="0" name="provNascita" type="xs:string"/>
+<xs:element minOccurs="0" name="ragsoc" type="xs:string"/>
+<xs:element minOccurs="0" name="sesso" type="xs:string"/>
+<xs:element minOccurs="0" name="tel1" type="xs:string"/>
+<xs:element minOccurs="0" name="tel2" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="via" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="impegno">
+<xs:complexContent>
+<xs:extension base="tns:impegnoKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoPerente" type="xs:string"/>
+<xs:element minOccurs="0" name="annoprov" type="xs:string"/>
+<xs:element minOccurs="0" name="artOrigine" type="xs:int"/>
+<xs:element minOccurs="0" name="capOrigine" type="xs:int"/>
+<xs:element minOccurs="0" name="cig" type="xs:string"/>
+<xs:element minOccurs="0" name="codIntervClass" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+<xs:element minOccurs="0" name="codprov" type="xs:string"/>
+<xs:element minOccurs="0" name="codtitgiu" type="xs:string"/>
+<xs:element minOccurs="0" name="corrEntr" type="xs:string"/>
+<xs:element minOccurs="0" name="countMand" type="xs:int"/>
+<xs:element minOccurs="0" name="cup" type="xs:string"/>
+<xs:element minOccurs="0" name="dataIns" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataagg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataemis" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataprovv" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descImpegno" type="xs:string"/>
+<xs:element minOccurs="0" name="descTipoForn" type="xs:string"/>
+<xs:element minOccurs="0" name="descrCapitolo" type="xs:string"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="direzioneCapitolo" type="xs:string"/>
+<xs:element minOccurs="0" name="direzioneDel" type="xs:string"/>
+<xs:element minOccurs="0" name="dispLiq" type="xs:double"/>
+<xs:element minOccurs="0" name="flagNoProv" type="xs:string"/>
+<xs:element minOccurs="0" name="impoatt" type="xs:double"/>
+<xs:element minOccurs="0" name="impoini" type="xs:double"/>
+<xs:element minOccurs="0" name="impoorig" type="xs:double"/>
+<xs:element minOccurs="0" name="nord" type="xs:string"/>
+<xs:element minOccurs="0" name="nprov" type="xs:string"/>
+<xs:element minOccurs="0" name="nroArticolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitoloOrig" type="xs:int"/>
+<xs:element minOccurs="0" name="nroPerente" type="xs:int"/>
+<xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+<xs:element minOccurs="0" name="personaFisica" type="xs:string"/>
+<xs:element minOccurs="0" name="plurienn" type="xs:int"/>
+<xs:element minOccurs="0" name="provCap" type="xs:string"/>
+<xs:element minOccurs="0" name="ragSoc" type="xs:string"/>
+<xs:element minOccurs="0" name="staoper" type="xs:string"/>
+<xs:element minOccurs="0" name="stato" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoFondo" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoProv" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoforn" type="xs:string"/>
+<xs:element minOccurs="0" name="totaleLiq" type="xs:double"/>
+<xs:element minOccurs="0" name="totalePagato" type="xs:double"/>
+<xs:element minOccurs="0" name="trasfTipo" type="xs:string"/>
+<xs:element minOccurs="0" name="trasfVoce" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="impegnoKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="annoimp" type="xs:string"/>
+<xs:element minOccurs="0" name="nimp" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaDelibereXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="delibera" nillable="true" type="tns:delibera"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="delibera">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="data_bu" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_estrazione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_odg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_proposta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_visto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="esito_giunta" type="xs:string"/>
+<xs:element minOccurs="0" name="identificativo" type="xs:string"/>
+<xs:element minOccurs="0" name="nro_def" type="xs:int"/>
+<xs:element minOccurs="0" name="nro_provv" type="xs:int"/>
+<xs:element minOccurs="0" name="num_legisl" type="xs:int"/>
+<xs:element minOccurs="0" name="num_odg" type="xs:int"/>
+<xs:element minOccurs="0" name="numero_bu" type="xs:int"/>
+<xs:element minOccurs="0" name="oggetto" type="xs:string"/>
+<xs:element minOccurs="0" name="segreteria_giunta" type="xs:string"/>
+<xs:element minOccurs="0" name="tipo_esecutivita" type="xs:string"/>
+<xs:element minOccurs="0" name="trasmissione_assessorati" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaLiquidazioniAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="liquidazioni" nillable="true" type="tns:liquidazioni"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="liquidazioni">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="annoImp" type="xs:string"/>
+<xs:element minOccurs="0" name="annobilRif" type="xs:string"/>
+<xs:element minOccurs="0" name="annoprov" type="xs:string"/>
+<xs:element minOccurs="0" name="cig" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="codIntervClass" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codprov" type="xs:string"/>
+<xs:element minOccurs="0" name="cup" type="xs:string"/>
+<xs:element minOccurs="0" name="dataagg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="flagFatt" type="xs:string"/>
+<xs:element minOccurs="0" name="nimp" type="xs:int"/>
+<xs:element minOccurs="0" name="nliq" type="xs:int"/>
+<xs:element minOccurs="0" name="nliqPrec" type="xs:int"/>
+<xs:element minOccurs="0" name="nprov" type="xs:string"/>
+<xs:element minOccurs="0" name="progben" type="xs:int"/>
+<xs:element minOccurs="0" name="staoper" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="voceSpesa" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaMandatiByAttoDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceTipo" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="importoEmessi" type="xs:decimal"/>
+<xs:element minOccurs="0" name="importoQuietanziati" type="xs:decimal"/>
+<xs:element minOccurs="0" name="importoVerificati" type="xs:decimal"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="mandati" nillable="true" type="tns:mandato"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mandato">
+<xs:sequence>
+<xs:element minOccurs="0" name="aliqIrpComu" type="xs:decimal"/>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="annoimp" type="xs:string"/>
+<xs:element minOccurs="0" name="annoparc" type="xs:string"/>
+<xs:element minOccurs="0" name="cassaEmessi" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cassaStanz" type="xs:decimal"/>
+<xs:element minOccurs="0" name="casteEmessi" type="xs:decimal"/>
+<xs:element minOccurs="0" name="casteStanz" type="xs:decimal"/>
+<xs:element minOccurs="0" name="causale" type="xs:string"/>
+<xs:element minOccurs="0" name="causaleCcp" type="xs:string"/>
+<xs:element minOccurs="0" name="cig" type="xs:string"/>
+<xs:element minOccurs="0" name="codAttivita" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="codIntervClass" type="xs:string"/>
+<xs:element minOccurs="0" name="codNota" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codbol" type="xs:string"/>
+<xs:element minOccurs="0" name="codparc" type="xs:string"/>
+<xs:element minOccurs="0" name="codstip" type="xs:string"/>
+<xs:element minOccurs="0" name="codtrib" type="xs:string"/>
+<xs:element minOccurs="0" name="commissioni" type="xs:string"/>
+<xs:element minOccurs="0" name="comunicTes" type="xs:string"/>
+<xs:element minOccurs="0" name="contoVincolato" type="xs:int"/>
+<xs:element minOccurs="0" name="cup" type="xs:string"/>
+<xs:element minOccurs="0" name="dataagg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataannu" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataemis" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datapaga" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datapagaRit" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datarid" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datascad" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataspost" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastam" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastamMif" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastorno" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastornoRit" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datatrasm" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datavaluta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="distinta" type="xs:string"/>
+<xs:element minOccurs="0" name="divisaUsata" type="xs:string"/>
+<xs:element minOccurs="0" name="dtVerifica" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="firmaNome" type="xs:string"/>
+<xs:element minOccurs="0" name="flAllegCart" type="xs:string"/>
+<xs:element minOccurs="0" name="impoini" type="xs:decimal"/>
+<xs:element minOccurs="0" name="impopag" type="xs:decimal"/>
+<xs:element minOccurs="0" name="impopagRit" type="xs:decimal"/>
+<xs:element minOccurs="0" name="imporid" type="xs:decimal"/>
+<xs:element minOccurs="0" name="impostorno" type="xs:decimal"/>
+<xs:element minOccurs="0" name="impostornoRit" type="xs:decimal"/>
+<xs:element minOccurs="0" name="inpsal" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="inpsaltracassa" type="xs:string"/>
+<xs:element minOccurs="0" name="inpsassog" type="xs:string"/>
+<xs:element minOccurs="0" name="inpsdal" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="inpsdetraz" type="xs:decimal"/>
+<xs:element minOccurs="0" name="inpsente" type="xs:decimal"/>
+<xs:element minOccurs="0" name="inpsimpon" type="xs:decimal"/>
+<xs:element minOccurs="0" name="inpsimpos" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irapimpon" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpSuRitint" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpSuSommeint" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpammlordo" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpcontributi" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpdetconiuge" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpdetlavoro" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpgiorni" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpimpon" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpimpos" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpimposlorda" type="xs:decimal"/>
+<xs:element minOccurs="0" name="irpnonsogg" type="xs:decimal"/>
+<xs:element minOccurs="0" name="ncarta" type="xs:int"/>
+<xs:element minOccurs="0" name="nimp" type="xs:int"/>
+<xs:element minOccurs="0" name="nliq" type="xs:int"/>
+<xs:element minOccurs="0" name="nmand" type="xs:int"/>
+<xs:element minOccurs="0" name="nmandInps" type="xs:int"/>
+<xs:element minOccurs="0" name="nmandSost" type="xs:int"/>
+<xs:element minOccurs="0" name="nquiet" type="xs:int"/>
+<xs:element minOccurs="0" name="nquietRit" type="xs:int"/>
+<xs:element minOccurs="0" name="nriscInps" type="xs:int"/>
+<xs:element minOccurs="0" name="nriscos" type="xs:int"/>
+<xs:element minOccurs="0" name="nroArticolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nstorno" type="xs:int"/>
+<xs:element minOccurs="0" name="nstornoRit" type="xs:int"/>
+<xs:element minOccurs="0" name="nsubimp" type="xs:int"/>
+<xs:element minOccurs="0" name="numDistintaStampa" type="xs:int"/>
+<xs:element minOccurs="0" name="progben" type="xs:int"/>
+<xs:element minOccurs="0" name="ragSoc" type="xs:string"/>
+<xs:element minOccurs="0" name="reddDetraz" type="xs:decimal"/>
+<xs:element minOccurs="0" name="reddNodetraz" type="xs:decimal"/>
+<xs:element minOccurs="0" name="stamand" type="xs:string"/>
+<xs:element minOccurs="0" name="staoper" type="xs:string"/>
+<xs:element minOccurs="0" name="statoAc" type="xs:string"/>
+<xs:element minOccurs="0" name="superMand" type="xs:int"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="utenteAgg" type="xs:string"/>
+<xs:element minOccurs="0" name="voceSpesa" type="xs:string"/>
+<xs:element minOccurs="0" name="vocecousc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaBeneficiariDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="beneficiario" nillable="true" type="tns:datiBeneficiario"/>
+<xs:element minOccurs="0" name="beneficiarioKeys" type="tns:beneficiarioKey"/>
+<xs:element minOccurs="0" name="codFisc" type="xs:string"/>
+<xs:element minOccurs="0" name="maxRec" type="xs:int"/>
+<xs:element minOccurs="0" name="partIva" type="xs:string"/>
+<xs:element minOccurs="0" name="ragSoc" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="datiBeneficiario">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="beneficiario" nillable="true" type="tns:beneficiario"/>
+<xs:element minOccurs="0" name="fornitore" type="tns:fornitore"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaDetermineXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="determina" nillable="true" type="tns:determina"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="determina">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:int"/>
+<xs:element minOccurs="0" name="avvenuto_impegno" type="xs:string"/>
+<xs:element minOccurs="0" name="cod_dir" type="xs:string"/>
+<xs:element minOccurs="0" name="cod_materia" type="xs:string"/>
+<xs:element minOccurs="0" name="cod_pubblicazione" type="xs:int"/>
+<xs:element minOccurs="0" name="cod_pubblicazione_dir" type="xs:int"/>
+<xs:element minOccurs="0" name="cod_sett" type="xs:string"/>
+<xs:element minOccurs="0" name="data_bu" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_cancellazione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_determ" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_estrazione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_ini_dir" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_ini_sett" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_invio_trasmissione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_notiziario" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_pres_carico" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_validazione" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="data_visto" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="det_vecchia_burp" type="xs:int"/>
+<xs:element minOccurs="0" name="flag_estratto" type="xs:int"/>
+<xs:element minOccurs="0" name="flag_pubb_all" type="xs:int"/>
+<xs:element minOccurs="0" name="flag_spesa" type="xs:string"/>
+<xs:element minOccurs="0" name="flag_trasm" type="xs:string"/>
+<xs:element minOccurs="0" name="id_bollettino" type="xs:int"/>
+<xs:element minOccurs="0" name="identificativo" type="xs:string"/>
+<xs:element minOccurs="0" name="impegni_multipli" type="xs:int"/>
+<xs:element minOccurs="0" name="impegno_delegato" type="xs:int"/>
+<xs:element minOccurs="0" name="matr_ute" type="xs:string"/>
+<xs:element minOccurs="0" name="modifica_di_impegno" type="xs:int"/>
+<xs:element minOccurs="0" name="note_notiziario" type="xs:string"/>
+<xs:element minOccurs="0" name="note_pubblicazione" type="xs:string"/>
+<xs:element minOccurs="0" name="num_determ" type="xs:int"/>
+<xs:element minOccurs="0" name="num_legisl" type="xs:int"/>
+<xs:element minOccurs="0" name="numero_bu" type="xs:int"/>
+<xs:element minOccurs="0" name="numero_notiziario" type="xs:int"/>
+<xs:element minOccurs="0" name="oggetto" type="xs:string"/>
+<xs:element minOccurs="0" name="personale" type="xs:string"/>
+<xs:element minOccurs="0" name="pubbl_notiziario" type="xs:int"/>
+<xs:element minOccurs="0" name="ragioneria" type="xs:int"/>
+<xs:element minOccurs="0" name="referente_notiziario" type="xs:string"/>
+<xs:element minOccurs="0" name="sensibile" type="xs:string"/>
+<xs:element minOccurs="0" name="stato" type="xs:string"/>
+<xs:element minOccurs="0" name="supplemento" type="xs:int"/>
+<xs:element minOccurs="0" name="urgenza" type="xs:string"/>
+<xs:element minOccurs="0" name="valutazioni_conc_persone" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaMandatiAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="dataEmiss" type="xs:string"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="mandati" nillable="true" type="tns:mandati"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mandati">
+<xs:sequence>
+<xs:element minOccurs="0" name="aliqIrpComu" type="xs:double"/>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="annoimp" type="xs:string"/>
+<xs:element minOccurs="0" name="annoparc" type="xs:string"/>
+<xs:element minOccurs="0" name="cassaEmessi" type="xs:double"/>
+<xs:element minOccurs="0" name="cassaStanz" type="xs:double"/>
+<xs:element minOccurs="0" name="casteEmessi" type="xs:double"/>
+<xs:element minOccurs="0" name="casteStanz" type="xs:double"/>
+<xs:element minOccurs="0" name="causale" type="xs:string"/>
+<xs:element minOccurs="0" name="causaleCcp" type="xs:string"/>
+<xs:element minOccurs="0" name="cig" type="xs:string"/>
+<xs:element minOccurs="0" name="codAttivita" type="xs:string"/>
+<xs:element minOccurs="0" name="codIntervClass" type="xs:string"/>
+<xs:element minOccurs="0" name="codNota" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codbol" type="xs:string"/>
+<xs:element minOccurs="0" name="codparc" type="xs:string"/>
+<xs:element minOccurs="0" name="codstip" type="xs:string"/>
+<xs:element minOccurs="0" name="codtrib" type="xs:string"/>
+<xs:element minOccurs="0" name="contoVincolato" type="xs:int"/>
+<xs:element minOccurs="0" name="cup" type="xs:string"/>
+<xs:element minOccurs="0" name="dataagg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataannu" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataemis" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datapaga" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datapagaRit" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datarid" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datascad" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastam" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastorno" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datastornoRit" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datatrasm" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="datavaluta" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="distinta" type="xs:string"/>
+<xs:element minOccurs="0" name="divisaUsata" type="xs:string"/>
+<xs:element minOccurs="0" name="impoini" type="xs:double"/>
+<xs:element minOccurs="0" name="impopag" type="xs:double"/>
+<xs:element minOccurs="0" name="impopagRit" type="xs:double"/>
+<xs:element minOccurs="0" name="imporid" type="xs:double"/>
+<xs:element minOccurs="0" name="impostorno" type="xs:double"/>
+<xs:element minOccurs="0" name="impostornoRit" type="xs:double"/>
+<xs:element minOccurs="0" name="inpsal" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="inpsaltracassa" type="xs:string"/>
+<xs:element minOccurs="0" name="inpsassog" type="xs:string"/>
+<xs:element minOccurs="0" name="inpsdal" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="inpsdetraz" type="xs:double"/>
+<xs:element minOccurs="0" name="inpsente" type="xs:double"/>
+<xs:element minOccurs="0" name="inpsimpon" type="xs:double"/>
+<xs:element minOccurs="0" name="inpsimpos" type="xs:double"/>
+<xs:element minOccurs="0" name="irapimpon" type="xs:double"/>
+<xs:element minOccurs="0" name="irpSuRitint" type="xs:double"/>
+<xs:element minOccurs="0" name="irpSuSommeint" type="xs:double"/>
+<xs:element minOccurs="0" name="irpammlordo" type="xs:double"/>
+<xs:element minOccurs="0" name="irpcontributi" type="xs:double"/>
+<xs:element minOccurs="0" name="irpdetconiuge" type="xs:double"/>
+<xs:element minOccurs="0" name="irpdetlavoro" type="xs:double"/>
+<xs:element minOccurs="0" name="irpgiorni" type="xs:double"/>
+<xs:element minOccurs="0" name="irpimpon" type="xs:double"/>
+<xs:element minOccurs="0" name="irpimpos" type="xs:double"/>
+<xs:element minOccurs="0" name="irpimposlorda" type="xs:double"/>
+<xs:element minOccurs="0" name="irpnonsogg" type="xs:double"/>
+<xs:element minOccurs="0" name="ncarta" type="xs:int"/>
+<xs:element minOccurs="0" name="nimp" type="xs:int"/>
+<xs:element minOccurs="0" name="nliq" type="xs:int"/>
+<xs:element minOccurs="0" name="nmand" type="xs:int"/>
+<xs:element minOccurs="0" name="nmandInps" type="xs:int"/>
+<xs:element minOccurs="0" name="nquiet" type="xs:int"/>
+<xs:element minOccurs="0" name="nquietRit" type="xs:int"/>
+<xs:element minOccurs="0" name="nriscInps" type="xs:int"/>
+<xs:element minOccurs="0" name="nriscos" type="xs:int"/>
+<xs:element minOccurs="0" name="nroArticolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nstorno" type="xs:int"/>
+<xs:element minOccurs="0" name="nstornoRit" type="xs:int"/>
+<xs:element minOccurs="0" name="nsubimp" type="xs:int"/>
+<xs:element minOccurs="0" name="numDistintaStampa" type="xs:int"/>
+<xs:element minOccurs="0" name="progben" type="xs:int"/>
+<xs:element minOccurs="0" name="ragSoc" type="xs:string"/>
+<xs:element minOccurs="0" name="reddDetraz" type="xs:double"/>
+<xs:element minOccurs="0" name="reddNodetraz" type="xs:double"/>
+<xs:element minOccurs="0" name="stamand" type="xs:string"/>
+<xs:element minOccurs="0" name="staoper" type="xs:string"/>
+<xs:element minOccurs="0" name="statoAc" type="xs:string"/>
+<xs:element minOccurs="0" name="superMand" type="xs:int"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="voceSpesa" type="xs:string"/>
+<xs:element minOccurs="0" name="vocecousc" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaCodiciGestionaliAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="codiciGestionali" nillable="true" type="tns:codiciGestionali"/>
+<xs:element minOccurs="0" name="listacodGest" type="xs:string"/>
+<xs:element minOccurs="0" name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="codiciGestionali">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoCreazione" type="xs:string"/>
+<xs:element minOccurs="0" name="categoria" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="titolo" type="xs:string"/>
+<xs:element minOccurs="0" name="voceEco" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaImpegniAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="dataEmiss" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegni" nillable="true" type="tns:impegno"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+<xs:element minOccurs="0" name="nImp" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaCapitoliAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="capitolo" nillable="true" type="tns:capitolo"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="capitolo">
+<xs:complexContent>
+<xs:extension base="tns:capitoloKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoCreazione" type="xs:string"/>
+<xs:element minOccurs="0" name="annoprov" type="xs:string"/>
+<xs:element minOccurs="0" name="area" type="xs:string"/>
+<xs:element minOccurs="0" name="categoria" type="xs:string"/>
+<xs:element minOccurs="0" name="centroResp" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="codMecc" type="xs:string"/>
+<xs:element minOccurs="0" name="codelenchi" type="xs:string"/>
+<xs:element minOccurs="0" name="codprov" type="xs:string"/>
+<xs:element minOccurs="0" name="contoVincolato" type="xs:int"/>
+<xs:element minOccurs="0" name="dataAgg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="deltamAssestCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltamAssestComp" type="xs:double"/>
+<xs:element minOccurs="0" name="deltamCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltamComp" type="xs:double"/>
+<xs:element minOccurs="0" name="deltamPrevCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltamPrevComp" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapAssestCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapAssestComp" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapComp" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapPrevCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="deltapPrevComp" type="xs:double"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="exArt" type="xs:int"/>
+<xs:element minOccurs="0" name="exCap" type="xs:int"/>
+<xs:element minOccurs="0" name="exCategoria" type="xs:string"/>
+<xs:element minOccurs="0" name="exTitolo" type="xs:string"/>
+<xs:element minOccurs="0" name="exUpb" type="xs:string"/>
+<xs:element minOccurs="0" name="exVoceEco" type="xs:string"/>
+<xs:element minOccurs="0" name="flmutuo" type="xs:string"/>
+<xs:element minOccurs="0" name="funzObiett" type="xs:string"/>
+<xs:element minOccurs="0" name="note" type="xs:string"/>
+<xs:element minOccurs="0" name="nprov" type="xs:string"/>
+<xs:element minOccurs="0" name="nvarIstit" type="xs:int"/>
+<xs:element minOccurs="0" name="obblAccant" type="xs:string"/>
+<xs:element minOccurs="0" name="permemAnnoPrec" type="xs:string"/>
+<xs:element minOccurs="0" name="permemPrev" type="xs:string"/>
+<xs:element minOccurs="0" name="progetto" type="xs:string"/>
+<xs:element minOccurs="0" name="programma" type="xs:string"/>
+<xs:element minOccurs="0" name="propVista" type="xs:string"/>
+<xs:element minOccurs="0" name="rilevIva" type="xs:string"/>
+<xs:element minOccurs="0" name="ripAutom" type="xs:string"/>
+<xs:element minOccurs="0" name="stAnnoPrec" type="xs:double"/>
+<xs:element minOccurs="0" name="stAnnoPrecCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stAnnoPrecRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssest" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssestCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssestIniz" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssestInizCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssestInizRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stAssestRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stAttu" type="xs:double"/>
+<xs:element minOccurs="0" name="stAttuCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stAttuRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stIniz" type="xs:double"/>
+<xs:element minOccurs="0" name="stInizCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stInizRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stPrev" type="xs:double"/>
+<xs:element minOccurs="0" name="stPrevCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="stPrevRes" type="xs:double"/>
+<xs:element minOccurs="0" name="stProp" type="xs:double"/>
+<xs:element minOccurs="0" name="tipocontr" type="xs:string"/>
+<xs:element minOccurs="0" name="tipofin" type="xs:string"/>
+<xs:element minOccurs="0" name="tipofondi" type="xs:string"/>
+<xs:element minOccurs="0" name="tipovinc" type="xs:string"/>
+<xs:element minOccurs="0" name="titolo" type="xs:string"/>
+<xs:element minOccurs="0" name="upb" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="vardefgestCassa" type="xs:double"/>
+<xs:element minOccurs="0" name="vardefgestComp" type="xs:double"/>
+<xs:element minOccurs="0" name="voceEco" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="capitoloKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEser" type="xs:int"/>
+<xs:element minOccurs="0" name="nroArt" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCap" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaAttiLiquidazioneDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="consultaAtto" nillable="true" type="tns:consultaAttoLiquidazioneDTO"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaAttoLiquidazioneDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="attoLiquidazione" type="tns:attoLiquidazione"/>
+<xs:element minOccurs="0" name="maxRec" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEser" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="capitoliKeys" nillable="true" type="tns:capitoloKey"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegni" nillable="true" type="tns:impegno"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegniKeys" nillable="true" type="tns:impegnoKey"/>
+<xs:element minOccurs="0" name="maxRec" type="xs:int"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="provvedimentiKeys" nillable="true" type="tns:provvedimentoKey"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="provvedimentoKey">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoProv" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="nroProv" type="xs:string"/>
+<xs:element minOccurs="0" name="tipo" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaMandatiXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="dataEmiss" type="xs:string"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="mandati" nillable="true" type="tns:mandati"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaDirezioniXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="direzioni" nillable="true" type="tns:direzioni"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element minOccurs="0" name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="direzioni">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="codDir" type="xs:string"/>
+<xs:element minOccurs="0" name="delegata" type="xs:string"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="flValidoBil" type="xs:string"/>
+<xs:element minOccurs="0" name="flValidoRag" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaImpegniAmmApertaDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegniAmmAperta" nillable="true" type="tns:impegnoAmmAperta"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+<xs:element minOccurs="0" name="nImp" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="impegnoAmmAperta">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoImp" type="xs:string"/>
+<xs:element minOccurs="0" name="dataAgg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataIns" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descriModIndivBbenef" type="xs:string"/>
+<xs:element minOccurs="0" name="descriUfficio" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="filone" type="xs:string"/>
+<xs:element minOccurs="0" name="flDatiSens" type="xs:string"/>
+<xs:element minOccurs="0" name="flsospenspub" type="xs:string"/>
+<xs:element minOccurs="0" name="funzDirigResp" type="xs:string"/>
+<xs:element minOccurs="0" name="linkCapitolato" type="xs:string"/>
+<xs:element minOccurs="0" name="linkContratto" type="xs:string"/>
+<xs:element minOccurs="0" name="linkCurriculum" type="xs:string"/>
+<xs:element minOccurs="0" name="linkProgetto" type="xs:string"/>
+<xs:element minOccurs="0" name="modIndivBenef" type="xs:string"/>
+<xs:element minOccurs="0" name="note" type="xs:string"/>
+<xs:element minOccurs="0" name="oggettoProvvedim" type="xs:string"/>
+<xs:element minOccurs="0" name="settore" type="xs:string"/>
+<xs:element minOccurs="0" name="uteIns" type="xs:string"/>
+<xs:element minOccurs="0" name="uteagg" type="xs:string"/>
+<xs:element minOccurs="0" name="nImp" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaMandatiCodGestAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="mandatiCodGest" nillable="true" type="tns:mandatiCodGest"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mandatiCodGest">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="importo" type="xs:double"/>
+<xs:element minOccurs="0" name="nmand" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaDirezioniAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="direzioni" nillable="true" type="tns:direzioni"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element minOccurs="0" name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaLiquidazioniByAttoDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceTipo" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="liquidazioni" nillable="true" type="tns:liquidazione"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="liquidazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="annoEsercizio" type="xs:string"/>
+<xs:element minOccurs="0" name="annobilRif" type="xs:string"/>
+<xs:element minOccurs="0" name="annoimp" type="xs:string"/>
+<xs:element minOccurs="0" name="annoprov" type="xs:string"/>
+<xs:element minOccurs="0" name="cig" type="xs:string"/>
+<xs:element minOccurs="0" name="codGest" type="xs:string"/>
+<xs:element minOccurs="0" name="codIntervClass" type="xs:string"/>
+<xs:element minOccurs="0" name="codben" type="xs:int"/>
+<xs:element minOccurs="0" name="codprov" type="xs:string"/>
+<xs:element minOccurs="0" name="cup" type="xs:string"/>
+<xs:element minOccurs="0" name="dataagg" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="descri" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="flagFatt" type="xs:string"/>
+<xs:element minOccurs="0" name="importo" type="xs:decimal"/>
+<xs:element minOccurs="0" name="nimp" type="xs:int"/>
+<xs:element minOccurs="0" name="nliq" type="xs:int"/>
+<xs:element minOccurs="0" name="nliqPrec" type="xs:int"/>
+<xs:element minOccurs="0" name="nprov" type="xs:string"/>
+<xs:element minOccurs="0" name="nroArticolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="nsubimp" type="xs:int"/>
+<xs:element minOccurs="0" name="progben" type="xs:int"/>
+<xs:element minOccurs="0" name="staoper" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="voceSpesa" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="consultaFornitoriAllDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fornitore" nillable="true" type="tns:fornitore"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaFornitoriXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="fornitore" nillable="true" type="tns:fornitore"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="deliberaByCodiceDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaImpegniByAnnoEsercizioDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="dataEmiss" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="impegni" nillable="true" type="tns:impegno"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element name="pageIndex" type="xs:int"/>
+<xs:element name="pageSize" type="xs:int"/>
+<xs:element name="totaleRisultati" type="xs:int"/>
+<xs:element minOccurs="0" name="nImp" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="verificaMandatiByAttoDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element minOccurs="0" name="codiceTipo" type="xs:string"/>
+<xs:element minOccurs="0" name="direzione" type="xs:string"/>
+<xs:element minOccurs="0" name="numero" type="xs:string"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="verificaMandatiDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="consultaCapitoliXImpegniDTO">
+<xs:complexContent>
+<xs:extension base="tns:baseDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="anno" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="capitolo" nillable="true" type="tns:capitolo"/>
+<xs:element minOccurs="0" name="listaCodGest" type="xs:string"/>
+<xs:element minOccurs="0" name="nroCapitolo" type="xs:int"/>
+<xs:element minOccurs="0" name="totaleRisultati" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="CSIException" type="tns:CSIException"/>
+<xs:complexType name="CSIException">
+<xs:sequence>
+<xs:element name="nestedExcClassName" nillable="true" type="xs:string"/>
+<xs:element name="stackTraceMessage" nillable="true" type="xs:string"/>
+<xs:element name="nestedExcMsg" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="determinaByCodice" type="tns:determinaByCodice"/>
+<xs:complexType name="determinaByCodice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:determinaByCodiceDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="determinaByCodiceResponse" type="tns:determinaByCodiceResponse"/>
+<xs:complexType name="determinaByCodiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:determinaByCodiceDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="inserisciAttoLiquidazione" type="tns:inserisciAttoLiquidazione"/>
+<xs:complexType name="inserisciAttoLiquidazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:inserisciAttoLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="inserisciAttoLiquidazioneResponse" type="tns:inserisciAttoLiquidazioneResponse"/>
+<xs:complexType name="inserisciAttoLiquidazioneResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:inserisciAttoLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDelibereXImpegni" type="tns:consultaDelibereXImpegni"/>
+<xs:complexType name="consultaDelibereXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaDelibereXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDelibereXImpegniResponse" type="tns:consultaDelibereXImpegniResponse"/>
+<xs:complexType name="consultaDelibereXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaDelibereXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaLiquidazioniAll" type="tns:consultaLiquidazioniAll"/>
+<xs:complexType name="consultaLiquidazioniAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaLiquidazioniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaLiquidazioniAllResponse" type="tns:consultaLiquidazioniAllResponse"/>
+<xs:complexType name="consultaLiquidazioniAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaLiquidazioniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiByAtto" type="tns:consultaMandatiByAtto"/>
+<xs:complexType name="consultaMandatiByAtto">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaMandatiByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiByAttoResponse" type="tns:consultaMandatiByAttoResponse"/>
+<xs:complexType name="consultaMandatiByAttoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaMandatiByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaBeneficiari" type="tns:consultaBeneficiari"/>
+<xs:complexType name="consultaBeneficiari">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaBeneficiariDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaBeneficiariResponse" type="tns:consultaBeneficiariResponse"/>
+<xs:complexType name="consultaBeneficiariResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaBeneficiariDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDetermineXImpegni" type="tns:consultaDetermineXImpegni"/>
+<xs:complexType name="consultaDetermineXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaDetermineXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDetermineXImpegniResponse" type="tns:consultaDetermineXImpegniResponse"/>
+<xs:complexType name="consultaDetermineXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaDetermineXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiAll" type="tns:consultaMandatiAll"/>
+<xs:complexType name="consultaMandatiAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaMandatiAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiAllResponse" type="tns:consultaMandatiAllResponse"/>
+<xs:complexType name="consultaMandatiAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaMandatiAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCodiciGestionaliAll" type="tns:consultaCodiciGestionaliAll"/>
+<xs:complexType name="consultaCodiciGestionaliAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaCodiciGestionaliAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCodiciGestionaliAllResponse" type="tns:consultaCodiciGestionaliAllResponse"/>
+<xs:complexType name="consultaCodiciGestionaliAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaCodiciGestionaliAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniAll" type="tns:consultaImpegniAll"/>
+<xs:complexType name="consultaImpegniAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaImpegniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniAllResponse" type="tns:consultaImpegniAllResponse"/>
+<xs:complexType name="consultaImpegniAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaImpegniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCapitoliAll" type="tns:consultaCapitoliAll"/>
+<xs:complexType name="consultaCapitoliAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaCapitoliAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCapitoliAllResponse" type="tns:consultaCapitoliAllResponse"/>
+<xs:complexType name="consultaCapitoliAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaCapitoliAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaAttiLiquidazione" type="tns:consultaAttiLiquidazione"/>
+<xs:complexType name="consultaAttiLiquidazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaAttiLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaAttiLiquidazioneResponse" type="tns:consultaAttiLiquidazioneResponse"/>
+<xs:complexType name="consultaAttiLiquidazioneResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaAttiLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegni" type="tns:consultaImpegni"/>
+<xs:complexType name="consultaImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniResponse" type="tns:consultaImpegniResponse"/>
+<xs:complexType name="consultaImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiXImpegni" type="tns:consultaMandatiXImpegni"/>
+<xs:complexType name="consultaMandatiXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaMandatiXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiXImpegniResponse" type="tns:consultaMandatiXImpegniResponse"/>
+<xs:complexType name="consultaMandatiXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaMandatiXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaAttoLiquidazione" type="tns:consultaAttoLiquidazione"/>
+<xs:complexType name="consultaAttoLiquidazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaAttoLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaAttoLiquidazioneResponse" type="tns:consultaAttoLiquidazioneResponse"/>
+<xs:complexType name="consultaAttoLiquidazioneResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaAttoLiquidazioneDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDirezioniXImpegni" type="tns:consultaDirezioniXImpegni"/>
+<xs:complexType name="consultaDirezioniXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaDirezioniXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDirezioniXImpegniResponse" type="tns:consultaDirezioniXImpegniResponse"/>
+<xs:complexType name="consultaDirezioniXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaDirezioniXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniAmmAperta" type="tns:consultaImpegniAmmAperta"/>
+<xs:complexType name="consultaImpegniAmmAperta">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaImpegniAmmApertaDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniAmmApertaResponse" type="tns:consultaImpegniAmmApertaResponse"/>
+<xs:complexType name="consultaImpegniAmmApertaResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaImpegniAmmApertaDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiCodGestAll" type="tns:consultaMandatiCodGestAll"/>
+<xs:complexType name="consultaMandatiCodGestAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaMandatiCodGestAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaMandatiCodGestAllResponse" type="tns:consultaMandatiCodGestAllResponse"/>
+<xs:complexType name="consultaMandatiCodGestAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaMandatiCodGestAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDirezioniAll" type="tns:consultaDirezioniAll"/>
+<xs:complexType name="consultaDirezioniAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaDirezioniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaDirezioniAllResponse" type="tns:consultaDirezioniAllResponse"/>
+<xs:complexType name="consultaDirezioniAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaDirezioniAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaLiquidazioniByAtto" type="tns:consultaLiquidazioniByAtto"/>
+<xs:complexType name="consultaLiquidazioniByAtto">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaLiquidazioniByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaLiquidazioniByAttoResponse" type="tns:consultaLiquidazioniByAttoResponse"/>
+<xs:complexType name="consultaLiquidazioniByAttoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaLiquidazioniByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaFornitoriAll" type="tns:consultaFornitoriAll"/>
+<xs:complexType name="consultaFornitoriAll">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaFornitoriAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaFornitoriAllResponse" type="tns:consultaFornitoriAllResponse"/>
+<xs:complexType name="consultaFornitoriAllResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaFornitoriAllDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaFornitoriXImpegni" type="tns:consultaFornitoriXImpegni"/>
+<xs:complexType name="consultaFornitoriXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaFornitoriXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaFornitoriXImpegniResponse" type="tns:consultaFornitoriXImpegniResponse"/>
+<xs:complexType name="consultaFornitoriXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaFornitoriXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deliberaByCodice" type="tns:deliberaByCodice"/>
+<xs:complexType name="deliberaByCodice">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:deliberaByCodiceDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deliberaByCodiceResponse" type="tns:deliberaByCodiceResponse"/>
+<xs:complexType name="deliberaByCodiceResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:deliberaByCodiceDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniByAnnoEsercizio" type="tns:consultaImpegniByAnnoEsercizio"/>
+<xs:complexType name="consultaImpegniByAnnoEsercizio">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaImpegniByAnnoEsercizioDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaImpegniByAnnoEsercizioResponse" type="tns:consultaImpegniByAnnoEsercizioResponse"/>
+<xs:complexType name="consultaImpegniByAnnoEsercizioResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaImpegniByAnnoEsercizioDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="verificaMandatiByAtto" type="tns:verificaMandatiByAtto"/>
+<xs:complexType name="verificaMandatiByAtto">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:verificaMandatiByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="verificaMandatiByAttoResponse" type="tns:verificaMandatiByAttoResponse"/>
+<xs:complexType name="verificaMandatiByAttoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:verificaMandatiByAttoDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="verificaMandati" type="tns:verificaMandati"/>
+<xs:complexType name="verificaMandati">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:verificaMandatiDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="verificaMandatiResponse" type="tns:verificaMandatiResponse"/>
+<xs:complexType name="verificaMandatiResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:verificaMandatiDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCapitoliXImpegni" type="tns:consultaCapitoliXImpegni"/>
+<xs:complexType name="consultaCapitoliXImpegni">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="tns:consultaCapitoliXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="consultaCapitoliXImpegniResponse" type="tns:consultaCapitoliXImpegniResponse"/>
+<xs:complexType name="consultaCapitoliXImpegniResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:consultaCapitoliXImpegniDTO"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consultaMandatiByAtto">
+    <wsdl:part element="tns:consultaMandatiByAtto" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCapitoliXImpegni">
+    <wsdl:part element="tns:consultaCapitoliXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiByAttoResponse">
+    <wsdl:part element="tns:consultaMandatiByAttoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaLiquidazioniAllResponse">
+    <wsdl:part element="tns:consultaLiquidazioniAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deliberaByCodice">
+    <wsdl:part element="tns:deliberaByCodice" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaAttoLiquidazione">
+    <wsdl:part element="tns:consultaAttoLiquidazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiCodGestAll">
+    <wsdl:part element="tns:consultaMandatiCodGestAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiXImpegni">
+    <wsdl:part element="tns:consultaMandatiXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDelibereXImpegniResponse">
+    <wsdl:part element="tns:consultaDelibereXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniAllResponse">
+    <wsdl:part element="tns:consultaImpegniAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaFornitoriAll">
+    <wsdl:part element="tns:consultaFornitoriAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiCodGestAllResponse">
+    <wsdl:part element="tns:consultaMandatiCodGestAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDirezioniXImpegni">
+    <wsdl:part element="tns:consultaDirezioniXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaMandatiResponse">
+    <wsdl:part element="tns:verificaMandatiResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaMandatiByAtto">
+    <wsdl:part element="tns:verificaMandatiByAtto" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="determinaByCodiceResponse">
+    <wsdl:part element="tns:determinaByCodiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCapitoliAllResponse">
+    <wsdl:part element="tns:consultaCapitoliAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaBeneficiari">
+    <wsdl:part element="tns:consultaBeneficiari" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaLiquidazioniAll">
+    <wsdl:part element="tns:consultaLiquidazioniAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiXImpegniResponse">
+    <wsdl:part element="tns:consultaMandatiXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDirezioniAllResponse">
+    <wsdl:part element="tns:consultaDirezioniAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserisciAttoLiquidazione">
+    <wsdl:part element="tns:inserisciAttoLiquidazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDirezioniXImpegniResponse">
+    <wsdl:part element="tns:consultaDirezioniXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaFornitoriAllResponse">
+    <wsdl:part element="tns:consultaFornitoriAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaMandatiByAttoResponse">
+    <wsdl:part element="tns:verificaMandatiByAttoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaLiquidazioniByAtto">
+    <wsdl:part element="tns:consultaLiquidazioniByAtto" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CSIException">
+    <wsdl:part element="tns:CSIException" name="CSIException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCodiciGestionaliAll">
+    <wsdl:part element="tns:consultaCodiciGestionaliAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDirezioniAll">
+    <wsdl:part element="tns:consultaDirezioniAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaAttiLiquidazioneResponse">
+    <wsdl:part element="tns:consultaAttiLiquidazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDelibereXImpegni">
+    <wsdl:part element="tns:consultaDelibereXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDetermineXImpegni">
+    <wsdl:part element="tns:consultaDetermineXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCapitoliXImpegniResponse">
+    <wsdl:part element="tns:consultaCapitoliXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniByAnnoEsercizioResponse">
+    <wsdl:part element="tns:consultaImpegniByAnnoEsercizioResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCodiciGestionaliAllResponse">
+    <wsdl:part element="tns:consultaCodiciGestionaliAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verificaMandati">
+    <wsdl:part element="tns:verificaMandati" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiAllResponse">
+    <wsdl:part element="tns:consultaMandatiAllResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaDetermineXImpegniResponse">
+    <wsdl:part element="tns:consultaDetermineXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaBeneficiariResponse">
+    <wsdl:part element="tns:consultaBeneficiariResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniAmmApertaResponse">
+    <wsdl:part element="tns:consultaImpegniAmmApertaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaFornitoriXImpegniResponse">
+    <wsdl:part element="tns:consultaFornitoriXImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaCapitoliAll">
+    <wsdl:part element="tns:consultaCapitoliAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniByAnnoEsercizio">
+    <wsdl:part element="tns:consultaImpegniByAnnoEsercizio" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniAll">
+    <wsdl:part element="tns:consultaImpegniAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaAttiLiquidazione">
+    <wsdl:part element="tns:consultaAttiLiquidazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaLiquidazioniByAttoResponse">
+    <wsdl:part element="tns:consultaLiquidazioniByAttoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniResponse">
+    <wsdl:part element="tns:consultaImpegniResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegniAmmAperta">
+    <wsdl:part element="tns:consultaImpegniAmmAperta" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="determinaByCodice">
+    <wsdl:part element="tns:determinaByCodice" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deliberaByCodiceResponse">
+    <wsdl:part element="tns:deliberaByCodiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="inserisciAttoLiquidazioneResponse">
+    <wsdl:part element="tns:inserisciAttoLiquidazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaFornitoriXImpegni">
+    <wsdl:part element="tns:consultaFornitoriXImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaMandatiAll">
+    <wsdl:part element="tns:consultaMandatiAll" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaImpegni">
+    <wsdl:part element="tns:consultaImpegni" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaAttoLiquidazioneResponse">
+    <wsdl:part element="tns:consultaAttoLiquidazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BilancioWsInterface">
+    <wsdl:operation name="determinaByCodice">
+      <wsdl:input message="tns:determinaByCodice" name="determinaByCodice">
+    </wsdl:input>
+      <wsdl:output message="tns:determinaByCodiceResponse" name="determinaByCodiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserisciAttoLiquidazione">
+      <wsdl:input message="tns:inserisciAttoLiquidazione" name="inserisciAttoLiquidazione">
+    </wsdl:input>
+      <wsdl:output message="tns:inserisciAttoLiquidazioneResponse" name="inserisciAttoLiquidazioneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDelibereXImpegni">
+      <wsdl:input message="tns:consultaDelibereXImpegni" name="consultaDelibereXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaDelibereXImpegniResponse" name="consultaDelibereXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaLiquidazioniAll">
+      <wsdl:input message="tns:consultaLiquidazioniAll" name="consultaLiquidazioniAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaLiquidazioniAllResponse" name="consultaLiquidazioniAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiByAtto">
+      <wsdl:input message="tns:consultaMandatiByAtto" name="consultaMandatiByAtto">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaMandatiByAttoResponse" name="consultaMandatiByAttoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaBeneficiari">
+      <wsdl:input message="tns:consultaBeneficiari" name="consultaBeneficiari">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaBeneficiariResponse" name="consultaBeneficiariResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDetermineXImpegni">
+      <wsdl:input message="tns:consultaDetermineXImpegni" name="consultaDetermineXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaDetermineXImpegniResponse" name="consultaDetermineXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiAll">
+      <wsdl:input message="tns:consultaMandatiAll" name="consultaMandatiAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaMandatiAllResponse" name="consultaMandatiAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCodiciGestionaliAll">
+      <wsdl:input message="tns:consultaCodiciGestionaliAll" name="consultaCodiciGestionaliAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaCodiciGestionaliAllResponse" name="consultaCodiciGestionaliAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniAll">
+      <wsdl:input message="tns:consultaImpegniAll" name="consultaImpegniAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaImpegniAllResponse" name="consultaImpegniAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCapitoliAll">
+      <wsdl:input message="tns:consultaCapitoliAll" name="consultaCapitoliAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaCapitoliAllResponse" name="consultaCapitoliAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaAttiLiquidazione">
+      <wsdl:input message="tns:consultaAttiLiquidazione" name="consultaAttiLiquidazione">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaAttiLiquidazioneResponse" name="consultaAttiLiquidazioneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegni">
+      <wsdl:input message="tns:consultaImpegni" name="consultaImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaImpegniResponse" name="consultaImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiXImpegni">
+      <wsdl:input message="tns:consultaMandatiXImpegni" name="consultaMandatiXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaMandatiXImpegniResponse" name="consultaMandatiXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaAttoLiquidazione">
+      <wsdl:input message="tns:consultaAttoLiquidazione" name="consultaAttoLiquidazione">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaAttoLiquidazioneResponse" name="consultaAttoLiquidazioneResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDirezioniXImpegni">
+      <wsdl:input message="tns:consultaDirezioniXImpegni" name="consultaDirezioniXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaDirezioniXImpegniResponse" name="consultaDirezioniXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniAmmAperta">
+      <wsdl:input message="tns:consultaImpegniAmmAperta" name="consultaImpegniAmmAperta">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaImpegniAmmApertaResponse" name="consultaImpegniAmmApertaResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiCodGestAll">
+      <wsdl:input message="tns:consultaMandatiCodGestAll" name="consultaMandatiCodGestAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaMandatiCodGestAllResponse" name="consultaMandatiCodGestAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDirezioniAll">
+      <wsdl:input message="tns:consultaDirezioniAll" name="consultaDirezioniAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaDirezioniAllResponse" name="consultaDirezioniAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaLiquidazioniByAtto">
+      <wsdl:input message="tns:consultaLiquidazioniByAtto" name="consultaLiquidazioniByAtto">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaLiquidazioniByAttoResponse" name="consultaLiquidazioniByAttoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaFornitoriAll">
+      <wsdl:input message="tns:consultaFornitoriAll" name="consultaFornitoriAll">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaFornitoriAllResponse" name="consultaFornitoriAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaFornitoriXImpegni">
+      <wsdl:input message="tns:consultaFornitoriXImpegni" name="consultaFornitoriXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaFornitoriXImpegniResponse" name="consultaFornitoriXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deliberaByCodice">
+      <wsdl:input message="tns:deliberaByCodice" name="deliberaByCodice">
+    </wsdl:input>
+      <wsdl:output message="tns:deliberaByCodiceResponse" name="deliberaByCodiceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniByAnnoEsercizio">
+      <wsdl:input message="tns:consultaImpegniByAnnoEsercizio" name="consultaImpegniByAnnoEsercizio">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaImpegniByAnnoEsercizioResponse" name="consultaImpegniByAnnoEsercizioResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="verificaMandatiByAtto">
+      <wsdl:input message="tns:verificaMandatiByAtto" name="verificaMandatiByAtto">
+    </wsdl:input>
+      <wsdl:output message="tns:verificaMandatiByAttoResponse" name="verificaMandatiByAttoResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="verificaMandati">
+      <wsdl:input message="tns:verificaMandati" name="verificaMandati">
+    </wsdl:input>
+      <wsdl:output message="tns:verificaMandatiResponse" name="verificaMandatiResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCapitoliXImpegni">
+      <wsdl:input message="tns:consultaCapitoliXImpegni" name="consultaCapitoliXImpegni">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaCapitoliXImpegniResponse" name="consultaCapitoliXImpegniResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CSIException" name="CSIException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BilancioWsServiceSoapBinding" type="tns:BilancioWsInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="determinaByCodice">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="determinaByCodice">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="determinaByCodiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="inserisciAttoLiquidazione">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="inserisciAttoLiquidazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="inserisciAttoLiquidazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDelibereXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaDelibereXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaDelibereXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaLiquidazioniAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaLiquidazioniAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaLiquidazioniAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiByAtto">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaMandatiByAtto">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaMandatiByAttoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaBeneficiari">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaBeneficiari">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaBeneficiariResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDetermineXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaDetermineXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaDetermineXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCodiciGestionaliAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaCodiciGestionaliAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaCodiciGestionaliAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaMandatiAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaMandatiAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaImpegniAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaImpegniAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCapitoliAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaCapitoliAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaCapitoliAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaAttiLiquidazione">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaAttiLiquidazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaAttiLiquidazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaAttoLiquidazione">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaAttoLiquidazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaAttoLiquidazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaMandatiXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaMandatiXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDirezioniXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaDirezioniXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaDirezioniXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniAmmAperta">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaImpegniAmmAperta">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaImpegniAmmApertaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaDirezioniAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaDirezioniAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaDirezioniAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaMandatiCodGestAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaMandatiCodGestAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaMandatiCodGestAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaLiquidazioniByAtto">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaLiquidazioniByAtto">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaLiquidazioniByAttoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaFornitoriAll">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaFornitoriAll">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaFornitoriAllResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaFornitoriXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaFornitoriXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaFornitoriXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deliberaByCodice">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deliberaByCodice">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deliberaByCodiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaImpegniByAnnoEsercizio">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaImpegniByAnnoEsercizio">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaImpegniByAnnoEsercizioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="verificaMandatiByAtto">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="verificaMandatiByAtto">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="verificaMandatiByAttoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="consultaCapitoliXImpegni">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaCapitoliXImpegni">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaCapitoliXImpegniResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="verificaMandati">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="verificaMandati">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="verificaMandatiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CSIException">
+        <soap:fault name="CSIException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BilancioWsService">
+    <wsdl:port binding="tns:BilancioWsServiceSoapBinding" name="BilancioWsPort">
+      <soap:address location="http://tst-wls9-01.csi.it:9130/cmpsrvrpbilanciocxf/CmpsrvrpWS/BilancioWs"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

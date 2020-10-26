@@ -1,0 +1,22 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<datasources>
+        <datasource jta="false" jndi-name="java:jboss/datasources/portalerilevazioni" pool-name="portalerilevazioni" enabled="true" use-ccm="false">
+                <connection-url>@dbconnection-url@</connection-url>
+                <driver>@dbdriver@</driver>
+                <driver-class>@dbdriver-class@</driver-class>
+                <security>
+                        <user-name>@dbuser-name@</user-name>
+                        <password>@dbpassword@</password>
+                </security>
+                <validation>
+                        <validate-on-match>true</validate-on-match>
+                        <background-validation>false</background-validation>
+                </validation>
+                <statement>
+                        <share-prepared-statements>false</share-prepared-statements>
+                </statement>
+        </datasource>
+</datasources>

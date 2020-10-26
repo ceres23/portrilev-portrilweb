@@ -1,0 +1,127 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../indexCompilatori.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../indexCompilatori.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Modifica profilo</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Modifica profilo</h3>
+			
+			<div id="MyWizard" class="wizard">
+				<ul class="steps">
+					<li data-target="#insUtentiComp1" class="active"><span class="badge">1</span>Modifica Dati<span class="chevron"></span></li>
+					<li data-target="#insUtentiComp2"><span class="badge">2</span>Associa Ente<span class="chevron"></span></li>
+				</ul>
+			</div>
+
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+					<h4>Dati utente</h4>
+					<fieldset class="form-horizontal">
+
+						<div class="control-group">
+							<label class="control-label" for="LoginUtente">Login</label>
+							<div class="controls">
+									<input id="LoginUtente" class="span6" type="text" value="" name="LoginUtente" disabled="disabled" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="NomeUtente">Nome</label>
+							<div class="controls">
+									<input id="NomeUtente" class="span6" type="text" value="" name="NomeUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="CognomeUtente">Cognome</label>
+							<div class="controls">
+									<input id="CognomeUtente" class="span6" type="text" value="" name="CognomeUtente" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="CodiceFiscaleUtente">Codice Fiscale</label>
+							<div class="controls">
+									<input id="CodiceFiscaleUtente" class="span6" type="text" value="" name="CodiceFiscaleUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="MailUtente">Mail</label>
+							<div class="controls">
+									<input id="MailUtente" class="span4" type="text" value="" name="MailUtente" />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="ripMailUtente">Ripeti Mail</label>
+							<div class="controls">
+									<input id="ripMailUtente" class="span4" type="text" value="" name="ripMailUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="TelefonoUtente">Telefono</label>
+							<div class="controls">
+									<input id="TelefonoUtente" class="span3" type="text" value="" name="TelefonoUtente" />
+							</div>
+						</div>
+					
+					</fieldset>
+				</div>
+			</div>
+
+			<p class="margin-medium">
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<a class="btn btn-secondary" href="">pulisci</a>
+				<a class="btn btn-primary pull-right" href="modProfiloStep2.shtml">prosegui</a>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+</body>
+</html>

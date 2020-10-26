@@ -1,0 +1,120 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../index.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../index.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Inserisci utente gestore</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Inserisci utente gestore</h3>
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+					<h4 class="step-pane">Dati</h4>
+					<fieldset class="form-horizontal">
+
+						<div class="control-group">
+							<label class="control-label" for="NomeUtente">Nome</label>
+							<div class="controls">
+									<input id="NomeUtente" class="span6" type="text" value="" name="NomeUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="CognomeUtente">Cognome</label>
+							<div class="controls">
+									<input id="CognomeUtente" class="span6" type="text" value="" name="CognomeUtente" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="CodiceFiscaleUtente">Codice Fiscale</label>
+							<div class="controls">
+									<input id="CodiceFiscaleUtente" class="span6" type="text" value="" name="CodiceFiscaleUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="MailUtente">Mail</label>
+							<div class="controls">
+									<input id="MailUtente" class="span4" type="text" value="" name="MailUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="TelefonoUtente">Telefono</label>
+							<div class="controls">
+									<input id="TelefonoUtente" class="span3" type="text" value="" name="TelefonoUtente" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="TelefonoUtente">Profilo</label>
+							<div class="controls">
+									<select id="TelefonoUtente" class="span6">
+										<option value="">xxxxxxxxx</option>
+										<option value="">xxxxxxxxx</option>
+										<option value="">xxxxxxxxx</option>
+										<option value="">xxxxxxxxx</option>
+									</select>
+							</div>
+						</div>
+					
+					</fieldset>
+				</div>
+			</div>
+			  
+			<!--#include virtual="include/modal.html" -->  
+			<p class="margin-medium">
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<a class="btn btn-secondary" href="">pulisci</a>
+				<a class="btn btn-primary pull-right" href="">salva</a>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+
+</body>
+</html>

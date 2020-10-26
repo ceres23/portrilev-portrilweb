@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+  <local-tx-datasource>
+    <jndi-name>java:jboss/datasources/portalerilevazioni</jndi-name>
+    <connection-url>@dbconnection-url@</connection-url>
+    <driver-class>@dbdriver-class@</driver-class>
+    <connection-property name="loginTimeout">5</connection-property>
+    <connection-property name="socketTimeout">40</connection-property>
+    <new-connection-sql>SET statement_timeout TO 30000</new-connection-sql>
+    <user-name>@dbuser-name@</user-name>
+    <password>@dbpassword@</password>
+    <min-pool-size>5</min-pool-size>
+    <max-pool-size>25</max-pool-size>
+    <background-validation>false</background-validation>
+    <validate-on-match>true</validate-on-match>
+    <valid-connection-checker-class-name>
+      org.jboss.resource.adapter.jdbc.vendor.PostgreSQLValidConnectionChecker
+    </valid-connection-checker-class-name>
+    <prefill>true</prefill>
+    <prepared-statement-cache-size>10</prepared-statement-cache-size>
+    <metadata>
+      <type-mapping>PostgreSQL 8.0</type-mapping>
+    </metadata>
+  </local-tx-datasource>
+</datasources>

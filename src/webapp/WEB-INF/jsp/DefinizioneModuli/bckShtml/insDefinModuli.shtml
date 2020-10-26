@@ -1,0 +1,138 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../index.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../index.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Inserimento Modulo</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Inserimento Modulo</h3>
+			<div id="MyWizard" class="wizard">
+				<ul class="steps">
+					<li data-target="#insUtentiComp1" class="active"><span class="badge">1</span>Dati testata<span class="chevron"></span></li>
+					<li data-target="#insUtentiComp2"><span class="badge">2</span>Colonne<span class="chevron"></span></li>
+				</ul>
+			</div>
+			
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+				
+				
+				<h4 class="step-pane">Dati</h4>
+					<fieldset class="form-horizontal">
+						
+						<div class="control-group">
+							<label class="control-label" for="titoloModulo">Titolo</label>
+							<div class="controls">
+								<input id="titoloModulo" class="span9" type="text" value="" name="titoloModulo" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="DescrizioneModulo">Descrizione</label>
+							<div class="controls">
+								<textarea id="DescrizioneModulo" rows="1" cols="15" class="span9" type="text" value="" name="DescrizioneModulo" ></textarea>
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="dataInizioModulo">Data inizio </label>
+							<div class="controls">  
+								<input id="dataInizioModulo" class="span2 datepicker" type="text" value="" name="dataInizioModulo">  
+								<span class="alRight">
+									<label class="radio inline" for="dataFineModulo">Data fine</label>                
+								</span>
+								<input id="dataFineModulo" class="span2 datepicker" type="text" value="" name="dataFineModulo">  
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="noteModulo">Note</label>
+							<div class="controls">
+								<textarea id="noteModulo" rows="2" cols="15" class="span9" type="text" value="" name="noteModulo"></textarea>
+							</div>
+						</div>
+						
+						<div class="accordion" id="istruzioniCompilatore">
+							<div class="accordion-group">
+							  <div class="accordion-heading">    
+								<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#istruzioniCompilatore" href="#istruzioniCompilatoreTAB">
+								 Istruzioni compilazione<span class="icon">&nbsp;</span>
+								</a>
+							  </div>
+							  <div id="istruzioniCompilatoreTAB" class="accordion-body collapse">
+								<div class="accordion-inner">              
+									<br>
+									<div class="control-group">
+										<textarea id="IstruzioniModulo" rows="8" cols="15" class="span12" type="text" value="" name="IstruzioniModulo">Istruzioni......</textarea>
+										
+									</div>
+								
+								</div>
+							  </div>
+							</div>
+						</div>
+						
+						
+					</fieldset>
+					  
+				</div>
+			</div>
+			
+			<p class="margin-medium">
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<a class="btn btn-secondary" href="">pulisci</a>
+				<span class="pull-right">
+					<a class="btn btn-primary" href="insColonnaModulo.shtml">prosegui</a>
+					<a class="btn btn-primary" href="">salva</a>
+				</span>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+
+</body>
+</html>

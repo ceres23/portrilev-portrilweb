@@ -1,0 +1,345 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../index.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../index.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Inserimento Colonne Modulo</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Inserimento Colonne Modulo</h3>
+			<div id="MyWizard" class="wizard">
+				<ul class="steps">
+					<li data-target="#insUtentiComp1"><span class="badge badge-success">1</span>Dati testata<span class="chevron"></span></li>
+					<li data-target="#insUtentiComp2" class="active"><span class="badge">2</span>Colonne<span class="chevron"></span></li>
+				</ul>
+			</div>
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+				
+					<h4 class="step-pane">Colonne</h4>
+					<fieldset class="form-horizontal">   
+						<table class="table table-hover tab_left" summary="....">
+							<thead>
+								<tr>
+									<th>Ordine</th>
+									<th>Campo</th>
+									<th>Etichetta</th>
+									<th>Editabile</th>
+									<th>Tipo</th>
+									<th>Obbligatorio</th>
+									<th class="tab_Right span1">&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>xxxxxxxxxxxxx</td>
+									<td>xxxxxxxxx</td>
+									<td>si</td>
+									<td>numero</td>
+									<td>si</td>
+									<td class="tab_Right">
+										<div class="btn-group">
+											<button class="btn dropdown-toggle" data-toggle="dropdown">Azioni<span class="caret"></span></button>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="#aggColonna" data-toggle="modal">aggiorna</a></li>
+												<li><a href="#msgElimina" data-toggle="modal">elimina</a></li>
+												
+											</ul>
+										</div>                               
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>xxxxxxxxxxxxx</td>
+									<td>xxxxxxxxx</td>
+									<td>si</td>
+									<td>numero</td>
+									<td>si</td>
+									<td class="tab_Right">
+										<div class="btn-group">
+											<button class="btn dropdown-toggle" data-toggle="dropdown">Azioni<span class="caret"></span></button>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="#aggColonna" data-toggle="modal">aggiorna</a></li>
+												<li><a href="#msgElimina" data-toggle="modal">elimina</a></li>
+												
+											</ul>
+										</div>                               
+									</td>
+								</tr>									
+							</tbody>
+
+						</table>
+						
+						<div class="row pagination_conth">
+							<div id="risultatiricerca_info2" class="span6">1 - 10 di 28 risultati</div>   
+								<div class="span6">                               
+								<div id="paginazione2" class="dataTables_paginate paging_bootstrap pagination">
+								  <ul>
+									<li><a href="#">« inizio</a></li>
+									<li><a href="#">« prec</a></li>
+									<li><a href="#">1</a></li>
+									<li class="active"><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">succ »</a></li>
+									<li><a href="#"> fine »</a></li>              
+								  </ul>
+								</div>         
+							</div> 
+						</div>
+					
+						<div class="clear"></div>
+				
+						<p><a class="btn btn-primary" data-toggle="collapse" data-target="#insColMod">nuova colonna</a></p>
+                     
+						<div id="insColMod" class="collapse">
+							<div class="accordion_info"> 
+								<div class="step-pane active" id="step1"> 
+
+								<fieldset class="form-horizontal">        
+									<h4 class="step-pane">Titolo: xxxxxxxxxxxx </h4>
+								
+										<div class="control-group">
+											<label class="control-label" >Codice Colonna</label>
+											<div class="controls">
+												<input id="codColonna" name="codColonna" class="span2" type="text" value="" />
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<label class="control-label" >Etichetta Colonna</label>
+											<div class="controls">
+												<input id="eticColonna" name="eticColonna" class="span9" type="text" value="" />
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<label class="control-label" >Posizione</label>
+											<div class="controls">
+												<input id="posColonna" name="posColonna" class="span1" type="text" value="" />
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<span class="control-label">Obbligatorio</span>
+											<div class="controls">
+												<label class="radio inline">
+													<input type="radio" name="optionsRadioObbl" value="si" id="optionsRadioObb1" checked />
+													si
+											  </label>
+												 <label class="radio inline">
+													<input type="radio" name="optionsRadioObbl" value="no" id="optionsRadioObb2" />
+													no
+												 </label>
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<span class="control-label">Profilo</span>
+											<div class="controls">
+												<label class="radio inline">
+													<input type="radio" name="optionsRadioProfilo" value="COMPILATORE" id="optionsProfile1" />
+													Compilatore 
+											  </label>
+												 <label class="radio inline">
+													<input type="radio" name="optionsRadioProfilo" value="VALIDATORE" id="optionsProfile2" />
+													Validatore
+												 </label>
+											</div>
+										</div>
+										
+										<div class="control-group">
+											<label class="control-label">tipo</label>
+											<div class="controls">
+												<select id="tipoValore" name="tipoValore" class="span6" >
+													<option value="">Scegli il tipo</option>
+													<option value="Alfanumerico">Alfanumerico</option>
+													<option value="Numerico">Numerico</option>
+													<option value="Data">Data</option>
+													<option value="Delibera">Delibera</option>
+													<option value="Determina">Determina</option>
+												</select>
+											</div>
+										</div>
+										
+										<!-- TipoNumerico -->
+										<div id="TipoNumerico" class="TipoNumerico" style="display:none">
+											<div class="control-group">
+												<label class="control-label">Lista valori per tipo operatore</label>
+												<div class="controls">
+													<select id="tipoOperatore" name="tipoOperatore" class="span6" >
+													<option value="">Scegli il tipo di operatore</option>
+													<option value="">&lt;&gt;</option>
+													<option value="">&equals;</option>
+												</select>
+												</div>
+											</div>
+											
+											<div class="control-group">
+												<label class="control-label">Valore di confronto</label>
+												<div class="controls">
+													<input type="text" name="ValConfronto" id="ValConfronto" class="span3" value="">
+												</div>
+											</div>
+											
+											
+										</div>
+										<!-- /TipoAlfanumerico -->
+										
+										<!-- TipoAlfanumerico -->
+										<div id="TipoAlfanumerico" class="TipoAlfanumerico" style="display:none">
+											<div class="control-group">
+												<label class="control-label" >Dimensione massima</label>
+												<div class="controls">
+													<input type="text" name="dimMassima" id="dimMassima" class="span3" value="">
+												</div>
+											</div>
+										</div>
+
+										<div id="TipoAlfanumerico" class="TipoAlfanumerico" style="display:none">
+											<div class="control-group">
+												<label class="control-label" >Dimensione minima</label>
+												<div class="controls">
+													<input type="text" name="dimMinima" id="dimMinima" class="span3" value="">
+												</div>
+											</div>
+										</div>
+
+										<!-- /TipoNumerico -->
+
+										<!-- determina/delibera -->
+										<div id="TipoDetDelibera" class="TipoDetDelibera" style="display:none">
+											<div class="control-group">
+												<label class="control-label" >Attiva Controllo Esistenza Provvedimento</label>
+												<div class="controls">
+													<label class="radio inline">
+														<input type="radio" name="optionsRadioCtrl" value="si" id="optionsRadioCtrl1" />
+														si
+													</label>
+													 <label class="radio inline">
+														<input type="radio" name="optionsRadioCtrl" value="no" id="optionsRadioCtrl2" checked />
+														no
+													 </label>
+												</div>
+											</div>
+					
+										</div>
+										<!-- /determina/delibera -->
+										
+										<div class="control-group">
+											<span class="control-label">Bloccante</span>
+											<div class="controls">
+												<label class="radio inline">
+													<input type="radio" name="optionsRadioBlock" value="si" id="optionsRadioBlock1" />
+													si
+											  </label>
+												 <label class="radio inline">
+													<input type="radio" name="optionsRadioBlock" value="no" id="optionsRadioBlock2" checked />
+													no
+												 </label>
+											</div>
+										</div>
+										<div class="Border_line"></div>
+										<p> 
+											<a class="btn btn-secondary" data-toggle="collapse" data-target="#insColMod">annulla</a> 
+											<a class="btn btn-primary pull-right" data-toggle="collapse" data-target="#insColMod">aggiungi colonna</a>
+										</p>
+
+								</fieldset>
+													
+								</div>
+							</div>
+						</div>
+					
+				</fieldset>					
+				</div>
+			</div>
+			<!--#include virtual="include/modal.html" -->  
+			<p class="margin-medium">
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<a class="btn btn-primary pull-right" href="insDefinModuli.shtml">salva</a>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+<script>
+
+$( function() {
+	$('#tipoValore').change(function(){
+		
+		if($(this).val()== "Alfanumerico"){
+			ResetValue();		
+			document.getElementById('TipoAlfanumerico').style.display = 'block';
+			
+		}else if($(this).val()== "Numerico"){
+			ResetValue();
+			document.getElementById('TipoNumerico').style.display = 'block';
+			
+		}else if($(this).val()== "Delibera" || $(this).val()== "Determina"){
+			ResetValue();
+			document.getElementById('TipoDetDelibera').style.display = 'block';
+			
+		}else if($(this).val()== "" || $(this).val()== "Data"){
+			ResetValue();
+		}
+			
+	})
+	
+	function ResetValue(){
+		document.getElementById('TipoAlfanumerico').style.display = 'none';
+		document.getElementById('TipoNumerico').style.display = 'none';
+		document.getElementById('TipoDetDelibera').style.display = 'none';
+	}
+	
+});
+
+</script>
+
+
+</body>
+</html>

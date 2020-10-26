@@ -1,0 +1,26 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<script language="javascript">
+function checkAll()
+{
+     var checkboxes = document.getElementsByTagName('input'), val = null;    
+     for (var i = 0; i < checkboxes.length; i++)
+     {
+         if (checkboxes[i].type == 'checkbox')
+         {
+             if (val === null) val = checkboxes[i].checked;
+             checkboxes[i].checked = val;
+         }
+     }
+ }
+ 
+checkAllTableList = function (me) {
+	$(me).closest("table").find('input[type="checkbox"]').not(me).prop('checked', me.checked);
+}
+ 
+
+ </script>
+ 

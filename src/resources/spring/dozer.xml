@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!-- Configurazione di dozer (http://dozer.sourceforge.net) -->
+<!-- 
+     Permette una trasformazione configurabile dei java bean.
+     
+     Può servire per trasformare i tipi di dati esposti tramite servizi
+     esterni (web services ed ejb) in tipi di dati applicativi
+     e viceversa.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dozerMapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+	    <!-- 
+	          i file di configurazione di dozer si trovano nella cartella
+	          dozer sotto il classpath e finiscono in -mapping.xml
+	     -->
+        <property name="mappingFiles" value="classpath*:/dozer/*-mapping.xml"/>
+    </bean>
+    
+</beans>

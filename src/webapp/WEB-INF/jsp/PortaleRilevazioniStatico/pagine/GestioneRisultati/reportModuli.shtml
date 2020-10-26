@@ -1,0 +1,163 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../index.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../index.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Report Moduli</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Report Modulo ABSN-00015</h3>
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+					<h4>Dati</h4>
+					<fieldset class="form-horizontal">
+				
+						<br>
+						<div class="control-group">
+							<span class="control-label">Stato</span>
+							<div class="controls">
+								<label class="radio inline">
+									<input type="radio" name="optionsRadiosModulo" value="StatoDaCompilare" id="optionsStatoValori2">
+									Da Compilare 
+								</label>
+								<label class="radio inline">
+									<input type="radio" name="optionsRadiosModulo" value="StatoChiusi" id="optionsStatoValori3">
+									Gi&agrave; Compilato
+								</label>
+								<label class="radio inline">
+									<input type="radio" name="optionsRadiosModulo" value="StatoTutti" id="optionsStatoValori4">
+									Tutti 
+								</label>
+							</div>
+						</div>							
+						<div class="control-group">
+							<label class="control-label" for="TitoloModulo">Titolo</label>
+							<div class="controls">   
+								<input id="TitoloModulo" class="span9" type="text" value="" name="TitoloModulo">
+							</div>
+						</div>
+						
+						<br>
+					</fieldset>
+					
+				</div>
+			</div>
+			
+			<div class="clear"></div>
+			<br>
+						
+			<div id="risModuli" class="collapse">
+				<h4 class="step-pane"><span class="num_result">19527</span> Risultati trovati</h4>
+					<table class="table table-hover tab_left">
+						<thead>
+							<tr>
+								<th>Ragione Sociale</th>
+								<th>Localit&agrave;</th>
+								<th>Provincia</th>
+								<th>Stato</th>
+								<th>Utente Compilatore</th>
+								<th>Data compilazione</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr>                  
+								<td>xxxxx xxxxxxxx </td>
+								<td>xxxxx</td>
+								<td>Torino</td>
+								<td>compilato</td>
+								<td>nome cognome</td>
+								<td>15/06/2013</td>							
+							</tr>
+							<tr>                  
+								<td>xxxxx xxxxxxxx </td>
+								<td>xxxxx</td>
+								<td>Torino</td>
+								<td>da compilare</td>
+								<td>nome cognome</td>
+								<td>18/06/2013</td>
+							</tr>
+						</tbody>  
+					</table>
+					<br>
+					<div class="row pagination_conth">
+						<div id="risultatiricerca_info2" class="span6">1 - 10 di 28 risultati</div>   
+							<div class="span6">                               
+							<div id="paginazione2" class="dataTables_paginate paging_bootstrap pagination">
+							  <ul>
+								<li><a href="#">« inizio</a></li>
+								<li><a href="#">« prec</a></li>
+								<li><a href="#">1</a></li>
+								<li class="active"><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">succ »</a></li>
+								<li><a href="#"> fine »</a></li>              
+							  </ul>
+							</div>         
+						</div> 
+					</div>
+
+				<p>	<a class="btn btn-primary" href="">esporta</a></p>
+				<div class="clear"></div>
+				<br>
+				<div class="Border_line"></div>	
+				
+			</div>	
+			
+			<p>
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<span class="pull-right">
+					<a class="btn btn-primary" data-toggle="collapse" data-target="#risModuli">cerca</a>
+				</span>
+			</p>       
+			  
+			</form>
+		</div>
+	
+	</div>	 
+</div>	
+
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+
+</body>
+</html>

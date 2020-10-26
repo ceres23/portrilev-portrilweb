@@ -1,0 +1,24 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+<div class="row-fluid">
+    <div class="span6" style="margin-top: 1%">
+    	<a style="text-align: left; padding: 4%">
+    		<c:out value="${DESC_ENTE_GESTORE_SEL}" />
+    	</a>
+    </div>
+    <div class="span6" style="margin-top: 1%">
+		<div class="span8"></div>
+		
+		<div class="span4">
+			<div class="row-fluid" >
+   			<h4 style="display: inline;color:blue;">
+				<c:out value="${UTENTE_GESTORE_CONNESSO.nome}" /> <c:out value="${UTENTE_GESTORE_CONNESSO.cognome}" /> 
+			</h4>		
+			<a href="http://dev-servizibilancio.bilancio.csi.it/bilancioliv1wrup/Shibboleth.sso/Logout" class="navbar-link" style="color:red;" >Esci&nbsp;</a>	
+			</div>
+		</div>
+    </div>
+
+</div>

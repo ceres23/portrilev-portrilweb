@@ -1,0 +1,171 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../indexCompilatori.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../indexCompilatori.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Compila Modulo</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Compila Modulo</h3>
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+					<h4>Dati</h4>
+					<fieldset class="form-horizontal">
+				
+						<br>							
+						<div class="control-group">
+							<label class="control-label" for="TitoloModulo">Titolo</label>
+							<div class="controls">   
+								<input id="TitoloModulo" class="span9" type="text" value="" name="TitoloModulo">
+							</div>
+						</div>
+						<br>
+						
+					</fieldset>
+					
+				</div>
+			</div>
+			
+			<div class="clear"></div>				
+			<br>
+			
+			<div id="risCompModuli" class="collapse">
+				<h4 class="step-pane"><span class="num_result">19527</span> Risultati trovati</h4>
+				<table class="table table-hover tab_left">
+					<thead>
+						<tr>
+							<th>Modulo</th>
+							<th>Descrizione</th>
+							<th>Stato</th>
+							<th>Data Inizio</th>
+							<th>Data Fine</th>
+							<th class="tab_Right span1">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>                  
+							<td>ABSN-00015</td>
+							<td>xxxxx xxxxxxxx </td>
+							<td>in compilazione</td>
+							<td>11/05/2013</td>
+							<td>15/06/2013</td>
+							<td class="tab_Right">
+								<div class="btn-group">
+									<button class="btn dropdown-toggle" data-toggle="dropdown">Azioni<span class="caret"></span></button>
+									<ul class="dropdown-menu pull-right">
+										<li><a href="compilaModuli.shtml">compila</a></li>
+										<li><a href="">scarica modello</a></li>
+										<li><div class="file-upload"><span>upload</span><input class="upload" type="file"></div></li>
+									</ul>
+								</div>                               
+							</td>
+						</tr>
+						<tr>                  
+							<td>ABSN-00016</td>
+							<td>xxxxx xxxxxxxx </td>
+							<td>chiuso</td>
+							<td>08/05/2013</td>
+							<td>15/06/2013</td>
+							<td class="tab_Right">
+								<div class="btn-group">
+									<button class="btn dropdown-toggle" data-toggle="dropdown">Azioni<span class="caret"></span></button>
+									<ul class="dropdown-menu pull-right">
+										<li><a href="compilaModuli.shtml">compila</a></li>
+										<li><a href="">scarica modello</a></li>
+										<li><div class="file-upload"><span>upload</span><input class="upload" type="file"></div></li>
+									</ul>
+								</div>                               
+							</td>
+						</tr>		
+						<tr>                  
+							<td>ABSN-00018</td>
+							<td>xxxxx xxxxxxxx </td>
+							<td>chiuso</td>
+							<td>13/05/2013</td>
+							<td>16/06/2013</td>
+							<td class="tab_Right">
+								<div class="btn-group">
+									<button class="btn dropdown-toggle" data-toggle="dropdown">Azioni<span class="caret"></span></button>
+									<ul class="dropdown-menu pull-right">
+										<li><a href="compilaModuli.shtml">compila</a></li>
+										<li><a href="">scarica modello</a></li>
+										<li><div class="file-upload"><span>upload</span><input class="upload" type="file"></div></li>
+									</ul>
+								</div>                               
+							</td>
+						</tr>
+					</tbody>  
+				</table>
+				<br>
+				<div class="row pagination_conth">
+					<div id="risultatiricerca_info2" class="span6">1 - 10 di 28 risultati</div>   
+						<div class="span6">                               
+						<div id="paginazione2" class="dataTables_paginate paging_bootstrap pagination">
+						  <ul>
+							<li><a href="#">« inizio</a></li>
+							<li><a href="#">« prec</a></li>
+							<li><a href="#">1</a></li>
+							<li class="active"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">succ »</a></li>
+							<li><a href="#"> fine »</a></li>              
+						  </ul>
+						</div>         
+					</div> 
+				</div>
+				<br>
+				<div class="Border_line"></div>
+		
+			</div>	
+			
+			<p>
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a>
+				<span class="pull-right">
+					<a class="btn btn-primary" data-toggle="collapse" data-target="#risCompModuli">cerca</a>
+				</span>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+
+</body>
+</html>

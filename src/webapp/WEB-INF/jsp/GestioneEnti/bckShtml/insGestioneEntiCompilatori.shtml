@@ -1,0 +1,114 @@
+
+<!--#include virtual="../../ris/include/head.html" -->
+
+</head>
+<body> 
+                      
+<!-- NAVIGAZIONE -->
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+<ul id="sommario" class="nascosto">
+	<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+</ul>
+
+<!-- /NAVIGAZIONE -->
+	
+	
+<hr />
+<div class="container-fluid-banner">
+
+<!--#include virtual="../../ris/include/portalheader.html" -->
+<!--#include virtual="../../ris/include/navbarLogin.html" -->
+<!--#include virtual="../../ris/include/applicationHeader.html" -->
+
+ <a name="A-contenuti" title="A-contenuti"></a>
+</div>
+
+
+<div class="row-fluid">
+	<div class="span12">
+		<ul class="breadcrumb">
+			<li><a href="../index.shtml">Home</a> <span class="divider">></span></li>
+			<li><a href="../index.shtml">XXXX</a> <span class="divider">></span></li>
+			<li class="active">Inserisci Ente</li>
+		</ul> 
+	</div>	
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12 contentPage">    
+			<form method="get" action="#">  
+			<!--#include virtual="../../ris/include/alertErrorSuccess.html" -->
+			
+			<h3>Inserisci Ente</h3>
+			<div class="step-content">
+				<div class="step-pane active" id="step1">
+					<h4 class="step-pane">Dati</h4>
+					<fieldset class="form-horizontal">
+
+						<div class="control-group">
+							<label class="control-label" for="RagioneSocialeEnte">Ragione Sociale</label>
+							<div class="controls">
+									<input id="RagioneSocialeEnte" class="span9" type="text" value="" name="RagioneSocialeEnte" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="LocalitaEnte">Localit&agrave;</label>
+							<div class="controls">
+									<input id="LocalitaEnte" class="span6" type="text" value="" name="LocalitaEnte" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="ProvinciaEnte">Provincia</label>
+							<div class="controls">
+									<input id="ProvinciaEnte" class="span6" type="text" value="" name="ProvinciaEnte" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="CodiceFiscaleEnte">Codice Fiscale</label>
+							<div class="controls">
+									<input id="CodiceFiscaleEnte" class="span6" type="text" value="" name="CodiceFiscaleEnte" />
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="PartitaIvaEnte">Partita Iva</label>
+							<div class="controls">
+									<input id="PartitaIvaEnte" class="span6" type="text" value="" name="PartitaIvaEnte" />
+									
+							</div>
+						</div>
+						
+						<div class="control-group">
+							<label class="control-label" for="MailEnte">Mail</label>
+							<div class="controls">
+									<input id="MailEnte" class="span4" type="text" value="" name="MailEnte" />
+							</div>
+						</div>
+					
+					</fieldset>
+				</div>
+			</div>
+			
+			<p class="margin-medium">
+				<a class="btn btn-secondary" href="javascript:history.go(-1)">indietro</a> 
+				<a class="btn btn-primary pull-right" href="">salva</a>
+			</p>       
+			  
+			</form>
+		</div>
+	</div>	 
+</div>	
+
+<!--#include virtual="../../ris/include/infoRequired.html" -->
+
+<!--#include virtual="../../ris/include/portalFooter.html" -->
+<!--#include virtual="../../ris/include/javascript.html" -->
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Copyright 2020 | Regione Piemonte
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util.xsd
+                        http://www.springframework.org/schema/mvc 
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- Spring cercherà nel package indicato i bean da configurare e li configurera secondo le annotation fornite -->
+    <context:component-scan base-package="it.csi.portril.portrilweb"/>
+    <context:annotation-config />
+
+	<!-- 
+	     Aggancia al contesto di Spring le properties che si trovano
+	     nei file di properties della cartella spring sotto il classpath.
+	     
+	     I valori potranno essere referenziati sia nei file di configurazione che da codice
+	     tramite l'annotation @Value, con la sintassi ${property.name}
+	-->    
+    <context:property-placeholder location="classpath:spring/*.properties"/>
+    
+	<!-- 
+	     Abilita automaticamente una serie di features tra le quali, ad esempio,
+	     lo scan delle annotation @Autowired e altre, il supporto Jackson per le comunicazioni JSON, ecc. 
+	-->
+    <mvc:annotation-driven/>
+    
+    <!-- converte i nomi delle view in riferimenti a jsp -->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <!-- espone alle jsp i bean dell'ApplicationContext con i nomi elencati -->
+       <property name="exposedContextBeanNames">
+      	 <list>
+	         <value>operationTypes</value>
+      	 </list>
+   	   </property>
+	   <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+       <!-- il nome della view viene prefissato e suffissato come indicato per costruire il percorso alla jsp -->
+	   <property name="prefix" value="/WEB-INF/jsp/"/>
+	   <property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- Abilita la validazione JSR-303 -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+	<bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+	
+<!-- 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+<!-- 		<property name="maxUploadSize" value="1048576"/> -->
+<!-- 		<property name="defaultEncoding" value="UTF-8"/> -->
+<!-- 	</bean> -->
+
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+
+</beans>

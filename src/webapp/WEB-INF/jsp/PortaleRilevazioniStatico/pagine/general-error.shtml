@@ -1,0 +1,59 @@
+
+
+<!--#include virtual="../ris/include/head.html" -->
+
+</head>
+<body>
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+	<ul id="sommario" class="nascosto">
+		<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+	</ul>
+<hr />
+
+<div class="container-fluid-banner">
+
+	<!--#include virtual="../ris/include/portalheader.html" -->
+	<!--#include virtual="../ris/include/navbarLogin.html" -->
+	<!--#include virtual="../ris/include/applicationHeader.html" -->
+
+</div>
+
+
+<p>&nbsp;</p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div id="noPad" class="span12 contentPage">
+		
+		<div class="alert-generic">
+		
+			<div class="icon-msgError">
+				<div class="txt-msgError">&num;ERROR</div>
+			</div>
+			<div class="center">
+				<div class="format-icon"><i class="icon-pushpin"></i></div>
+			</div>
+			<div class="text-generalError">
+			<p>Ci scusiamo si è verificato un'errore imprevisto!<br>se persiste contattare l'assistenza</p>
+			
+			<div class="centerHome">
+				<a href="/index.shtml">
+					<div class="boxBackHome"><i class="icon-double-angle-right"></i><span>home</span><i class="icon-double-angle-left"></i></div>
+				</a>
+			</div>
+			
+			
+			</div>
+		
+		</div>
+		
+	</div>
+  </div>	 
+</div>	
+<br/>
+
+<!--#include virtual="../ris/include/portalFooter.html" -->
+<!--#include virtual="../ris/include/javascript.html" -->
+
+</body>
+</html>

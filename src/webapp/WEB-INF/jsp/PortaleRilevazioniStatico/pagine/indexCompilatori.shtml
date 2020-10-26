@@ -1,0 +1,100 @@
+
+
+<!--#include virtual="../ris/include/head.html" -->
+
+</head>
+<body>
+
+<p class="nascosto"><a name="A-sommario" title="A-sommario"></a></p>     
+	<ul id="sommario" class="nascosto">
+		<li><a href="#A-contenuti">Salta ai contenuti</a></li>
+	</ul>
+<hr />
+
+<div class="container-fluid-banner">
+
+<!--#include virtual="../ris/include/portalheader.html" -->
+<!--#include virtual="../ris/include/navbarLogin.html" -->
+<!--#include virtual="../ris/include/applicationHeader.html" -->
+
+</div>
+
+
+<p>&nbsp;</p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12 contentPage">
+		<div class="ContainerIndexDefault">
+
+			<div class="btnIndexUser">
+				<div class="iconBoxProfile">
+					<div class="TitleBox">Gestione Profilo<br><i>&nbsp;</i></div>
+				</div>
+				<div class="txtGestRisultati txtWhite">
+					<a id="IndexSetUpEnte" href="GestioneProfilo/modProfiloStep1.shtml"><p><span class="bullPointRisultati"></span><span>modifica</span></p></a>
+					<p class="DivisBoxRisultati"></p>
+					<a id="IndexSetUpEnte" href="GestioneProfilo/gesPassword.shtml"><p><span class="bullPointRisultati"></span><span>cambia password</span></p></a>
+				</div>
+			</div>
+			<div class="btnIndexUser">
+				<div class="iconBoxModuli">
+					<div class="TitleBox">Gestione moduli<br><i>&nbsp;</i></div>
+				</div>
+				<div class="txtDefModuli txtWhite">
+					<a id="IndexSetUpEnte" onclick="StartMenu(event);" name="CompilaModuli/ricCompModuli.shtml" data-toggle="modal"><p><span class="bullPointModuli"></span><span>compilazione</span></p></a>
+					<p class="DivisBoxModuli"></p>
+					<a id="IndexSetUpEnte" onclick="StartMenu(event);" name="CompilaModuli/ricDefinModuli.shtml" data-toggle="modal"><p><span class="bullPointModuli"></span><span>ricerca</span></p></a>
+				</div>
+			</div>
+			
+			
+
+		</div>
+		
+		
+		<!-- Modal -->
+			<div id="msgSelezionaEnte" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="msgSelezionaEnteLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="nostep-pane">Seleziona l'Ente</h4>	   
+				</div>
+				<div class="modal-body">
+				    <fieldset class="form-horizontal"> 
+						<p><i>Per proseguire filtra l'ente da visualizzare</i></p>
+						<div>
+							<div class="ModalIconEnteIndex"></div>
+							<div class="ModalFiltraEnteIndex">
+								
+								<div class="filtroPerEnte">
+								<h4>ENTE</h4>
+									<select class="span12" name="EnteSelezionato">
+										<option value="">Comune</option>
+										<option value="">Provincia</option>
+										<option value="">Regione</option>
+										<option value="">Comunit&agrave; montana</option>
+										
+									</select>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+					  <div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">annulla</button>
+						<button id="confirmSelectEnte" class="btn btn-primary" href="">conferma</button>
+					  </div>
+			</div>  
+		<!--/modale --> 
+
+
+		
+	</div>
+  </div>	 
+</div>	
+<br/>
+
+<!--#include virtual="../ris/include/portalFooter.html" -->
+<!--#include virtual="../ris/include/javascript.html" -->
+
+</body>
+</html>
