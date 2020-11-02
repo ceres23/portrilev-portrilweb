@@ -32,7 +32,6 @@ public class BusinessGestioneProfiloCompilatoreImpl extends BusinessManagerBase 
 		String methodName="risettaPwCompilatore";
 		log.startMethod(methodName);		
 		log.debug(methodName, "utente.getIdUtenteCompilatore() " + utente.getIdUtenteCompilatore());
-		log.debug(methodName, "password " + password);
 		PrTUtentiCompilatori prTUtentiCompilatori = utentiCompilatoriRepository.findOne(utente.getIdUtenteCompilatore());
 		prTUtentiCompilatori.setPassword(password);
 		UtentiCompilatoriModel ris = mapper.map(prTUtentiCompilatori, UtentiCompilatoriModel.class);		 		

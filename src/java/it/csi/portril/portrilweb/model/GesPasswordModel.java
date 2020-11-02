@@ -66,6 +66,6 @@ public class GesPasswordModel extends GenericModel{
 	 * @see it.csi.portril.portrilweb.model.GenericModel#toString(java.lang.Object)
 	 */
 	public String toString(Object obj) {
-		return Utility.fieldsToString(this);
+		return getClass().getName() + '@' + Integer.toHexString(hashCode());
 	}
 }

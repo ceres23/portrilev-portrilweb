@@ -267,7 +267,7 @@ public class UtentiCompilatoriModel extends GenericModel{
 	 * @see it.csi.portril.portrilweb.model.GenericModel#toString(java.lang.Object)
 	 */
 	public String toString(Object obj) {
-		return Utility.fieldsToString(this);
+		return getClass().getName() + '@' + Integer.toHexString(hashCode());
 	}
 
 	/**
@@ -325,5 +325,4 @@ public class UtentiCompilatoriModel extends GenericModel{
 	public void setServizio(Boolean servizio) {
 		this.servizio = servizio;
 	}
-	
 }

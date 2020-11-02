@@ -106,11 +106,6 @@ public class GestionePasswordController extends ControllerBase{
 		List<String> ris=new ArrayList<String>();
 		UtentiCompilatoriModel utenteCompilatore = super.getUtenteCompilatoreConnesso(session);
 		
-		log.debug(methodName, "utenteCompilatore.getPassword() " + utenteCompilatore.getPassword());
-		log.debug(methodName, "passwordAttuale " + passwordAttuale);
-		log.debug(methodName, "passwordNuova " + passwordNuova);
-		log.debug(methodName, "passwordRipetiNuova " + passwordRipetiNuova);
-
 		if(StringUtils.isBlank(passwordAttuale) || StringUtils.isBlank(passwordNuova) || StringUtils.isBlank(passwordRipetiNuova)){
 			ris.add(CostantiERR.ERR_CAMPI_OBBLIGATORI_PW.getCostante());		
 			log.info(methodName, "campi pw non valorizzati");

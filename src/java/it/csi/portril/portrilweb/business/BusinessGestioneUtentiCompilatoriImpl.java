@@ -195,8 +195,6 @@ public class BusinessGestioneUtentiCompilatoriImpl extends BusinessManagerBase i
 		log.startMethod(methodName);	
 		String ris="";
 		log.debug(methodName, "email       " + email);
-		log.debug(methodName, "loginReg    " + loginReg);
-		log.debug(methodName, "passwordReg " + passwordReg);		
 		PrTUtentiCompilatori uten = utentiCompilatoriRepository.getUtenteCompilatoreByEmail(email);
 		if(uten==null){
 			ris = CostantiERR.ERR_MAIL_NON_PRESENTE.getCostante();

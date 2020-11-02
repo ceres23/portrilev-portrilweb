@@ -51,7 +51,6 @@ public class BusinessGestioneLoginCompilatoreImpl extends BusinessManagerBase im
 		String methodName="getUtenteCompilatoreByUsPW";
 		log.startMethod(methodName);	
 		log.debug(methodName, "login" +login);
-		log.debug(methodName, "password"+password);		
 		List<PrTUtentiCompilatori> listaUtentiCompilatori= utentiCompilatoriDAO.getUtenteCompilatoreByUsPW( login, password);			
 		UtentiCompilatoriModel ris = null;
 		if(listaUtentiCompilatori!=null && listaUtentiCompilatori.size()==1){ 
