@@ -14,3 +14,4 @@ All configuration MUST be set in the `buildfiles/<env>.properties` file used for
 - log.level = The default logging level
 - log.file = The logging file
 - jspath = The path for the JS files
+- 
